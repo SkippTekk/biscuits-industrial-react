@@ -1,3 +1,9 @@
+import "./ShipsNavbar.css";
+import Amarr from "./Amaar/Amaar";
+import AmarrBattleCruiser from "./Amaar/AmarrBattleCruiser";
+import AmarrCapital from "./Amaar/AmarrCapital";
+import AmarrIndustrial from "./Amaar/AmarrIndustrial";
+
 import {
   MDBContainer,
   MDBNavbar,
@@ -6,7 +12,6 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem,
 } from "mdb-react-ui-kit";
 
 const ShipNavbar = () => {
@@ -15,51 +20,15 @@ const ShipNavbar = () => {
       <MDBContainer fluid>
         <MDBNavbarNav>
           <MDBNavbarItem>
-            <MDBDropdown>
+            <MDBDropdown group>
               <MDBDropdownToggle tag="a" className="nav-link">
                 Amarr
               </MDBDropdownToggle>
               <MDBDropdownMenu>
-                <MDBDropdownItem>
-                  <MDBDropdownItem link href="#">
-                    Submenu &raquo;
-                  </MDBDropdownItem>
-                  <ul className="dropdown-menu dropdown-submenu">
-                    <MDBDropdownItem>
-                      <MDBDropdownItem>Submenu item 1</MDBDropdownItem>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <MDBDropdownItem>Submenu item 2</MDBDropdownItem>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <MDBDropdownItem href="#">
-                        Submenu item 3 &raquo;
-                      </MDBDropdownItem>
-                      <ul className="dropdown-menu dropdown-submenu">
-                        <MDBDropdownItem>
-                          <MDBDropdownItem href="#">
-                            Multi level 1
-                          </MDBDropdownItem>
-                        </MDBDropdownItem>
-                        <MDBDropdownItem>
-                          <MDBDropdownItem href="#">
-                            Multi level 2
-                          </MDBDropdownItem>
-                        </MDBDropdownItem>
-                      </ul>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <MDBDropdownItem link href="#">
-                        Submenu item 4
-                      </MDBDropdownItem>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <MDBDropdownItem link href="#">
-                        Submenu item 5
-                      </MDBDropdownItem>
-                    </MDBDropdownItem>
-                  </ul>
-                </MDBDropdownItem>
+                <Amarr />
+                <AmarrBattleCruiser />
+                <AmarrCapital />
+                <AmarrIndustrial />
               </MDBDropdownMenu>
             </MDBDropdown>
           </MDBNavbarItem>
