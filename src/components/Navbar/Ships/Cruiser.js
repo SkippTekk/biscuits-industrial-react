@@ -7,62 +7,70 @@ const Cruiser = (props) => {
         Cruiser Class <MDBIcon fas icon="caret-right" />
       </MDBDropdownItem>
       <ul className="dropdown-menu dropdown-submenu bg-dark">
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Cruiser <MDBIcon fas icon="caret-right" />
-          </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.cruiser.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        {props.cruiser && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Cruiser <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.cruiser.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Navy Cruiser <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.navy.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        )}
+        {props.navy && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Navy Cruiser <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.navy.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Recon Ship <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.recon.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        )}
+        {props.recon && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Recon Ship <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.recon.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Heavy Assult Cruiser <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.heavy.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        )}
+        {props.heavy && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Heavy Assult Cruiser <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.heavy.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
+              ))}
+            </ul>
+          </MDBDropdownItem>
+        )}
         {props.interdiction && (
           <MDBDropdownItem>
             <MDBDropdownItem link href="#">
@@ -79,34 +87,38 @@ const Cruiser = (props) => {
             </ul>
           </MDBDropdownItem>
         )}
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Logistics <MDBIcon fas icon="caret-right" />
-          </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.logi.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        {props.logi && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Logistics <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.logi.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Strategic Cruiser <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.strat.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        )}
+        {props.strat && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Strategic Cruiser <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.strat.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
+              ))}
+            </ul>
+          </MDBDropdownItem>
+        )}
       </ul>
     </MDBDropdownItem>
   );

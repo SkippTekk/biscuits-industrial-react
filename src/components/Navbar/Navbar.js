@@ -1,4 +1,3 @@
-import axios from "axios";
 import Clock from "../Clock";
 import ShipNavbar from "./Ships/ShipsNavbar";
 import { useState } from "react";
@@ -13,36 +12,8 @@ import {
 } from "mdb-react-ui-kit";
 
 const Navbar = () => {
-  // Shows the hamburger menu button when in a small window
   const [showNav, setShowNav] = useState(false);
-
-  // Controlling how the navbar operates, helps with changing the icon allow reverting
-  // back to the normal navbar if people want out
-  const [shipNav, setShipNav] = useState([1, 2]);
-
-  // This allows you to call your backend for gathering ship types, etc..
-  const getShipNav = () => {
-    // Checks to see if there is an array already set
-    // If not, it will skip over and call the backend
-    // axios will return a promise for your api backend calls, we can use
-    // .then and .catch here to process the data and throwing errors much more
-    // cleanly to the console. console.warn is a great away to say there is a problem
-    // versus the console.log, or using a toast library to throw pretty toast notifications
-    // if (shipNav.length > 0) {
-    //   setShipNav([]);
-    // } else {
-    //   try {
-    //     axios
-    //       .get("http://localhost:8081/api/navbar")
-    //       .then((res) => {
-    //         setShipNav(res.data);
-    //       })
-    //       .catch((err) => console.warn(err));
-    //   } catch (error) {
-    //     console.warn(error);
-    //   }
-    // }
-  };
+  const [shipNav, setShipNav] = useState(false);
 
   return (
     <>
@@ -67,9 +38,9 @@ const Navbar = () => {
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink onClick={getShipNav}>
+                <MDBNavbarLink onClick={() => setShipNav(!shipNav)}>
                   Ship Manufacturing{" "}
-                  {shipNav.length > 0 ? (
+                  {shipNav ? (
                     <i className="fas fa-times" />
                   ) : (
                     <i className="fas fa-sync" />
@@ -112,7 +83,7 @@ const Navbar = () => {
           </div>
         </MDBContainer>
       </MDBNavbar>
-      <ShipNavbar />
+      {shipNav && <ShipNavbar />}
     </>
   );
 };

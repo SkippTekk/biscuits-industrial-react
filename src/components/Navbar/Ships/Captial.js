@@ -7,20 +7,22 @@ const Capital = (props) => {
         Capital Class <MDBIcon fas icon="caret-right" />
       </MDBDropdownItem>
       <ul className="dropdown-menu dropdown-submenu bg-dark">
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Dreadnought <MDBIcon fas icon="caret-right" />
-          </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.dread.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+        {props.dread && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Dreadnought <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.dread.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
+              ))}
+            </ul>
+          </MDBDropdownItem>
+        )}
         {props.navy && (
           <MDBDropdownItem>
             <MDBDropdownItem link href="#">
