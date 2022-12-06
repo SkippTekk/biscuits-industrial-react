@@ -1,17 +1,15 @@
 import "./ShipsNavbar.css";
 import Amarr from "./Amaar/Amaar";
-import AmarrBattleCruiser from "./Amaar/AmarrBattleCruiser";
-import AmarrCapital from "./Amaar/AmarrCapital";
-import AmarrIndustrial from "./Amaar/AmarrIndustrial";
+import Caldari from "./Caldari/Caldari";
+import Gallante from "./Gallante/Gallante";
+import Minmatar from "./Minmatar/Minmatar";
+import Ore from "./Ore/Ore";
 
 import {
   MDBContainer,
   MDBNavbar,
   MDBNavbarNav,
   MDBNavbarItem,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
 } from "mdb-react-ui-kit";
 
 const ShipNavbar = () => {
@@ -20,17 +18,11 @@ const ShipNavbar = () => {
       <MDBContainer fluid>
         <MDBNavbarNav>
           <MDBNavbarItem>
-            <MDBDropdown group>
-              <MDBDropdownToggle tag="a" className="nav-link">
-                Amarr
-              </MDBDropdownToggle>
-              <MDBDropdownMenu>
-                <Amarr />
-                <AmarrBattleCruiser />
-                <AmarrCapital />
-                <AmarrIndustrial />
-              </MDBDropdownMenu>
-            </MDBDropdown>
+            <Amarr />
+            <Caldari />
+            <Gallante />
+            <Minmatar />
+            <Ore />
           </MDBNavbarItem>
         </MDBNavbarNav>
       </MDBContainer>

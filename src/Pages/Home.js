@@ -20,7 +20,6 @@ const Home = () => {
               width="60%"
               height="100%"
               allowtransparency="true"
-              frameborder="0"
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
             ></iframe>
             <div className="text-center mt-3">

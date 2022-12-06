@@ -6,105 +6,133 @@ const Frigate = (props) => {
       <MDBDropdownItem link href="#">
         Frigate Class <MDBIcon fas icon="caret-right" />
       </MDBDropdownItem>
-      <ul className="dropdown-menu dropdown-submenu">
+      <ul className="dropdown-menu dropdown-submenu bg-dark">
         <MDBDropdownItem>
           <MDBDropdownItem link href="#">
             Frigate <MDBIcon fas icon="caret-right" />
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.frigate.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+          <ul className="dropdown-menu dropdown-submenu bg-dark">
+            {props.frigate.map((ship) => (
+              <MDBDropdownItem key={ship.name}>
+                <MDBDropdownItem link href={ship.url}>
+                  {ship.name}
                 </MDBDropdownItem>
               </MDBDropdownItem>
             ))}
           </ul>
         </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Navy Frigate <MDBIcon fas icon="caret-right" />
+        {props.expedition && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Expedition Frigate <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.expedition.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
+                </MDBDropdownItem>
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.navy.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+        )}
+        {props.navy && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Navy Frigate <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.navy.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Interceptor <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.interceptor.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+        )}
+        {props.interceptor && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Interceptor <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.interceptor.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Assualt Frigate <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.assault.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+        )}
+        {props.assault && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Assualt Frigate <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.assault.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Covert Ops <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.covert.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+        )}
+        {props.covert && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Covert Ops <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.covert.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Eletronic Attack Ship <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.elecattack.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+        )}
+        {props.elecattack && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Eletronic Attack Ship <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.elecattack.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Logistic Frigate <MDBIcon fas icon="caret-right" />
+              ))}
+            </ul>
           </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu">
-            {props.logi.map((frig) => (
-              <MDBDropdownItem>
-                <MDBDropdownItem link href={frig.url}>
-                  {frig.name}
+        )}
+        {props.logi && (
+          <MDBDropdownItem>
+            <MDBDropdownItem link href="#">
+              Logistic Frigate <MDBIcon fas icon="caret-right" />
+            </MDBDropdownItem>
+            <ul className="dropdown-menu dropdown-submenu bg-dark">
+              {props.logi.map((ship) => (
+                <MDBDropdownItem key={ship.name}>
+                  <MDBDropdownItem link href={ship.url}>
+                    {ship.name}
+                  </MDBDropdownItem>
                 </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
+              ))}
+            </ul>
+          </MDBDropdownItem>
+        )}
       </ul>
     </MDBDropdownItem>
   );

@@ -1,18 +1,18 @@
 import { MDBDropdownItem, MDBIcon } from "mdb-react-ui-kit";
 
-const Destroyer = (props) => {
+const Battleship = (props) => {
   return (
     <MDBDropdownItem>
       <MDBDropdownItem link href="#">
-        Destoryer Class <MDBIcon fas icon="caret-right" />
+        Battleship Class <MDBIcon fas icon="caret-right" />
       </MDBDropdownItem>
       <ul className="dropdown-menu dropdown-submenu bg-dark">
         <MDBDropdownItem>
           <MDBDropdownItem link href="#">
-            Destroyer <MDBIcon fas icon="caret-right" />
+            Battleship <MDBIcon fas icon="caret-right" />
           </MDBDropdownItem>
           <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.destroyer.map((ship) => (
+            {props.battle.map((ship) => (
               <MDBDropdownItem key={ship.name}>
                 <MDBDropdownItem link href={ship.url}>
                   {ship.name}
@@ -23,7 +23,7 @@ const Destroyer = (props) => {
         </MDBDropdownItem>
         <MDBDropdownItem>
           <MDBDropdownItem link href="#">
-            Navy Destroyer <MDBIcon fas icon="caret-right" />
+            Navy Battleship <MDBIcon fas icon="caret-right" />
           </MDBDropdownItem>
           <ul className="dropdown-menu dropdown-submenu bg-dark">
             {props.navy.map((ship) => (
@@ -37,10 +37,10 @@ const Destroyer = (props) => {
         </MDBDropdownItem>
         <MDBDropdownItem>
           <MDBDropdownItem link href="#">
-            Interdictor <MDBIcon fas icon="caret-right" />
+            Black Ops <MDBIcon fas icon="caret-right" />
           </MDBDropdownItem>
           <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.interdictor.map((ship) => (
+            {props.blackops.map((ship) => (
               <MDBDropdownItem key={ship.name}>
                 <MDBDropdownItem link href={ship.url}>
                   {ship.name}
@@ -51,24 +51,10 @@ const Destroyer = (props) => {
         </MDBDropdownItem>
         <MDBDropdownItem>
           <MDBDropdownItem link href="#">
-            Command Destroyers <MDBIcon fas icon="caret-right" />
+            Marauder <MDBIcon fas icon="caret-right" />
           </MDBDropdownItem>
           <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.commdestroyer.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
-                </MDBDropdownItem>
-              </MDBDropdownItem>
-            ))}
-          </ul>
-        </MDBDropdownItem>
-        <MDBDropdownItem>
-          <MDBDropdownItem link href="#">
-            Tactical Destroyer <MDBIcon fas icon="caret-right" />
-          </MDBDropdownItem>
-          <ul className="dropdown-menu dropdown-submenu bg-dark">
-            {props.tacdestroyer.map((ship) => (
+            {props.marauder.map((ship) => (
               <MDBDropdownItem key={ship.name}>
                 <MDBDropdownItem link href={ship.url}>
                   {ship.name}
@@ -82,4 +68,4 @@ const Destroyer = (props) => {
   );
 };
 
-export default Destroyer;
+export default Battleship;
