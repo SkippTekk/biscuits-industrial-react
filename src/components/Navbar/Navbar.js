@@ -38,7 +38,10 @@ const Navbar = () => {
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink onClick={() => setShipNav(!shipNav)}>
+                <MDBNavbarLink
+                  onClick={() => setShipNav(!shipNav)}
+                  className={shipNav ? "text-info" : ""}
+                >
                   Ship Manufacturing{" "}
                   {shipNav ? (
                     <i className="fas fa-times" />

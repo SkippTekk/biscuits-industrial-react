@@ -14,3 +14,9 @@
 .dropdown-menu > li:hover > .dropdown-submenu {
   display: block;
 }
+
+.nav-link:hover,
+.dropdown-item:hover {
+  cursor: pointer;
+  color: #54b4d3 !important;
+}
