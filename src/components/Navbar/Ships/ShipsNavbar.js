@@ -1,5 +1,5 @@
 import "./ShipsNavbar.css";
-import Amarr from "./Amaar/Amaar";
+import Amarr from "./Amarr/Amarr";
 import Caldari from "./Caldari/Caldari";
 import Gallante from "./Gallante/Gallante";
 import Minmatar from "./Minmatar/Minmatar";
