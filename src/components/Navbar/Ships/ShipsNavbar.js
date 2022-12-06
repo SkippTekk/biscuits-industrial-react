@@ -12,7 +12,7 @@ import Serpentis from "./Serpentis/Serpentis";
 import Sisters from "./Sisters/Sisters";
 import Mordu from "./Mordu/Mordu";
 import Triglavian from "./Triglavian/Triglavian";
-import Edencom from "./Edoncom/Edoncom";
+import Edencom from "./Edencom/Edencom";
 
 import {
   MDBContainer,
