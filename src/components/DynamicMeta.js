@@ -4,8 +4,14 @@ const DynamicMeta = (props) => {
   return (
     <Helmet>
       <meta property="og:url" content={props.url} />
-      <meta property="og:title" content={`Skipptekk | ${props.title}`} />
-      <meta property="og:description" content={props.desc} />
+      <meta
+        property="og:title"
+        content={`Skipptekk.com | How to build a ${props.ship}`}
+      />
+      <meta
+        property="og:description"
+        content="Curated by Biscuits Industrial for Eve Online"
+      />
       <meta property="og:image" content={props.img} />
     </Helmet>
   );

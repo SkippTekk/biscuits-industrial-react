@@ -21,82 +21,82 @@ const Amarr = () => {
       <MDBDropdownMenu dark className="bg-dark">
         <Frigate
           frigate={[
-            { name: "Crucifier", url: "http://stuff.com" },
-            { name: "Magnate", url: "http://stuff.com" },
-            { name: "Executioner", url: "http://stuff.com" },
-            { name: "Inquisitor", url: "http://stuff.com" },
-            { name: "Tormentor", url: "http://stuff.com" },
-            { name: "Punisher", url: "http://stuff.com" },
+            { name: "Crucifier", url: "/ship/Crucifier" },
+            { name: "Magnate", url: "/ship/Magnate" },
+            { name: "Executioner", url: "/ship/" },
+            { name: "Inquisitor", url: "/ship/" },
+            { name: "Tormentor", url: "/ship/" },
+            { name: "Punisher", url: "/ship/" },
           ]}
           navy={[
-            { name: "Crucifier Navy Issue", url: "http://stuff.com" },
-            { name: "Imperial Navy Slicer", url: "http://stuff.com" },
-            { name: "Magnate Navy Issue", url: "http://stuff.com" },
+            { name: "Crucifier Navy Issue", url: "/ship/" },
+            { name: "Imperial Navy Slicer", url: "/ship/" },
+            { name: "Magnate Navy Issue", url: "/ship/" },
           ]}
           interceptor={[
-            { name: "Crusader", url: "http://stuff.com" },
-            { name: "Malediction", url: "http://stuff.com" },
+            { name: "Crusader", url: "/ship/" },
+            { name: "Malediction", url: "/ship/" },
           ]}
           assault={[
-            { name: "Retribution", url: "http://stuff.com" },
-            { name: "Vengeance", url: "http://stuff.com" },
+            { name: "Retribution", url: "/ship/" },
+            { name: "Vengeance", url: "/ship/" },
           ]}
           covert={[
-            { name: "Anathema", url: "http://stuff.com" },
-            { name: "Purifier", url: "http://stuff.com" },
+            { name: "Anathema", url: "/ship/" },
+            { name: "Purifier", url: "/ship/" },
           ]}
-          elecattack={[{ name: "Sentinel", url: "http://stuff.com" }]}
-          logi={[{ name: "Deacon", url: "http://stuff.com" }]}
+          elecattack={[{ name: "Sentinel", url: "/ship/" }]}
+          logi={[{ name: "Deacon", url: "/ship/" }]}
         />
 
         <Destroyer
           destroyer={[
-            { name: "Coercer", url: "http://stuff.com" },
-            { name: "Dragoon", url: "http://stuff.com" },
+            { name: "Coercer", url: "/ship/" },
+            { name: "Dragoon", url: "/ship/" },
           ]}
-          navy={[{ name: "Coercer Navy Issue", url: "http://stuff.com" }]}
-          interdictor={[{ name: "Heretic", url: "http://stuff.com" }]}
-          commdestroyer={[{ name: "Pontifex", url: "http://stuff.com" }]}
-          tacdestroyer={[{ name: "Confessor", url: "http://stuff.com" }]}
+          navy={[{ name: "Coercer Navy Issue", url: "/ship/" }]}
+          interdictor={[{ name: "Heretic", url: "/ship/" }]}
+          commdestroyer={[{ name: "Pontifex", url: "/ship/" }]}
+          tacdestroyer={[{ name: "Confessor", url: "/ship/" }]}
         />
 
         <Cruiser
           cruiser={[
-            { name: "Maller", url: "http://stuff.com" },
-            { name: "Omen", url: "http://stuff.com" },
-            { name: "Augoror", url: "http://stuff.com" },
-            { name: "Arbitrator", url: "http://stuff.com" },
+            { name: "Maller", url: "/ship/" },
+            { name: "Omen", url: "/ship/" },
+            { name: "Augoror", url: "/ship/" },
+            { name: "Arbitrator", url: "/ship/" },
           ]}
           navy={[
-            { name: "Augoror Fleet Issue", url: "http://stuff.com" },
-            { name: "Omen Fleet Issue", url: "http://stuff.com" },
+            { name: "Augoror Fleet Issue", url: "/ship/" },
+            { name: "Omen Fleet Issue", url: "/ship/" },
           ]}
           recon={[
-            { name: "Curse", url: "http://stuff.com" },
-            { name: "Pilgrim", url: "http://stuff.com" },
+            { name: "Curse", url: "/ship/" },
+            { name: "Pilgrim", url: "/ship/" },
           ]}
           heavy={[
-            { name: "Zealot", url: "http://stuff.com" },
-            { name: "Sacrilege", url: "http://stuff.com" },
+            { name: "Zealot", url: "/ship/" },
+            { name: "Sacrilege", url: "/ship/" },
           ]}
-          interdiction={[{ name: "Devoter", url: "http://stuff.com" }]}
-          logi={[{ name: "Guardian", url: "http://stuff.com" }]}
-          strat={[{ name: "Legion", url: "http://stuff.com" }]}
+          interdiction={[{ name: "Devoter", url: "/ship/" }]}
+          logi={[{ name: "Guardian", url: "/ship/" }]}
+          strat={[{ name: "Legion", url: "/ship/" }]}
         />
 
         <Battlecruiser
           cruiser={[
-            { name: "Prohpecy", url: "http://stuff.com" },
-            { name: "Harbinger", url: "http://stuff.com" },
-            { name: "Oracle", url: "http://stuff.com" },
+            { name: "Prohpecy", url: "/ship/" },
+            { name: "Harbinger", url: "/ship/" },
+            { name: "Oracle", url: "/ship/" },
           ]}
           navy={[
-            { name: "Harbinger Navy Issue", url: "http://stuff.com" },
-            { name: "Prophecy Navy Issue", url: "http://stuff.com" },
+            { name: "Harbinger Navy Issue", url: "/ship/" },
+            { name: "Prophecy Navy Issue", url: "/ship/" },
           ]}
           command={[
-            { name: "Absolution", url: "http://stuff.com" },
-            { name: "Damnation", url: "http://stuff.com" },
+            { name: "Absolution", url: "/ship/" },
+            { name: "Damnation", url: "/ship/" },
           ]}
         />
 
