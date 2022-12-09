@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer/Footer";
 
-import ShipByName from "./Ships/ShipByName";
+import ShipByName from "./Pages/ShipByName";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import PageNotFound from "./Pages/PageNotFound";

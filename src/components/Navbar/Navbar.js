@@ -1,6 +1,6 @@
 import Clock from "../Clock";
 import ShipNavbar from "./Ships/ShipsNavbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MDBNavbar,
   MDBContainer,
@@ -13,7 +13,16 @@ import {
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
-  const [shipNav, setShipNav] = useState(false);
+  const [shipManu, setShipManu] = useState(false);
+
+  useEffect(() => {
+    const data = localStorage.getItem("shipManu");
+    setShipManu(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("shipManu", JSON.stringify(shipManu));
+  }, [shipManu]);
 
   return (
     <>
@@ -39,18 +48,18 @@ const Navbar = () => {
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink
-                  onClick={() => setShipNav(!shipNav)}
-                  className={shipNav ? "text-info" : ""}
+                  onClick={() => setShipManu(!shipManu)}
+                  className={shipManu ? "text-info" : ""}
                 >
                   Ship Manufacturing{" "}
-                  {shipNav ? (
+                  {shipManu ? (
                     <i className="fas fa-times" />
                   ) : (
                     <i className="fas fa-sync" />
                   )}
                 </MDBNavbarLink>
               </MDBNavbarItem>
-              {!shipNav && (
+              {!shipManu && (
                 <>
                   <MDBNavbarItem>
                     <MDBNavbarLink>
@@ -86,7 +95,7 @@ const Navbar = () => {
           </div>
         </MDBContainer>
       </MDBNavbar>
-      {shipNav && <ShipNavbar />}
+      {shipManu && <ShipNavbar />}
     </>
   );
 };

@@ -21,7 +21,8 @@ const Home = () => {
               height="100%"
               allowtransparency="true"
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-            ></iframe>
+              style={{ borderRadius: "15px" }}
+            />
             <div className="text-center mt-3">
               <span>Stay connected or check up on the updates:</span>
             </div>
@@ -82,13 +83,17 @@ const Home = () => {
           </div>
           <div className="text-center">
             <a href="https://evewho.com/character/95046472" target="__blank">
-              <input
+              <img
                 type="image"
                 className="media-object text-center"
                 src="https://images.evetech.net/characters/95046472/portrait"
-                style={{ maxWidth: "70%", maxHeight: "100%" }}
+                style={{
+                  maxWidth: "70%",
+                  maxHeight: "100%",
+                  borderRadius: "15px",
+                }}
                 alt="Ship Image goes Here, Mail SkippTekk or tweet @XGKIPPY for a fix"
-              ></input>
+              />
             </a>
           </div>
         </MDBCol>
