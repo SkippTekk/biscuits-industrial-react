@@ -14,9 +14,9 @@ const Industrial = (props) => {
           </MDBDropdownItem>
           <ul className="dropdown-menu dropdown-submenu bg-dark">
             {props.industrial.map((ship) => (
-              <MDBDropdownItem key={ship.name}>
-                <MDBDropdownItem link href={ship.url}>
-                  {ship.name}
+              <MDBDropdownItem key={ship.typeName}>
+                <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                  {ship.typeName}
                 </MDBDropdownItem>
               </MDBDropdownItem>
             ))}
@@ -29,9 +29,9 @@ const Industrial = (props) => {
             </MDBDropdownItem>
             <ul className="dropdown-menu dropdown-submenu bg-dark">
               {props.transport.map((ship) => (
-                <MDBDropdownItem key={ship.name}>
-                  <MDBDropdownItem link href={ship.url}>
-                    {ship.name}
+                <MDBDropdownItem key={ship.typeName}>
+                  <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                    {ship.typeName}
                   </MDBDropdownItem>
                 </MDBDropdownItem>
               ))}
@@ -45,9 +45,9 @@ const Industrial = (props) => {
             </MDBDropdownItem>
             <ul className="dropdown-menu dropdown-submenu bg-dark">
               {props.freighter.map((ship) => (
-                <MDBDropdownItem key={ship.name}>
-                  <MDBDropdownItem link href={ship.url}>
-                    {ship.name}
+                <MDBDropdownItem key={ship.typeName}>
+                  <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                    {ship.typeName}
                   </MDBDropdownItem>
                 </MDBDropdownItem>
               ))}
@@ -61,9 +61,9 @@ const Industrial = (props) => {
             </MDBDropdownItem>
             <ul className="dropdown-menu dropdown-submenu bg-dark">
               {props.jump.map((ship) => (
-                <MDBDropdownItem key={ship.name}>
-                  <MDBDropdownItem link href={ship.url}>
-                    {ship.name}
+                <MDBDropdownItem key={ship.typeName}>
+                  <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                    {ship.typeName}
                   </MDBDropdownItem>
                 </MDBDropdownItem>
               ))}

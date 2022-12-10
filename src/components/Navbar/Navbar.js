@@ -13,20 +13,34 @@ import {
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
-  const [shipManu, setShipManu] = useState(false);
+  const [navSelect, setNavSelect] = useState();
+
+  const navToggle = (opt) => {
+    if (!navSelect) {
+      setNavSelect(opt);
+    }
+
+    if (navSelect === opt) {
+      setNavSelect("");
+    }
+
+    if (navSelect !== opt) {
+      setNavSelect(opt);
+    }
+  };
 
   useEffect(() => {
-    const data = localStorage.getItem("shipManu");
-    setShipManu(JSON.parse(data));
+    const data = localStorage.getItem("navSelect");
+    setNavSelect(JSON.parse(data));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("shipManu", JSON.stringify(shipManu));
-  }, [shipManu]);
+    localStorage.setItem("navSelect", JSON.stringify(navSelect));
+  }, [navSelect]);
 
   return (
     <>
-      <MDBNavbar expand="lg" dark bgColor="dark">
+      <MDBNavbar expand="lg" dark bgColor="dark" className="m-0 p-0">
         <MDBContainer fluid>
           <MDBNavbarToggler
             type="button"
@@ -42,52 +56,58 @@ const Navbar = () => {
           <MDBCollapse navbar show={showNav} className="h-50">
             <MDBNavbarNav>
               <MDBNavbarItem>
-                <MDBNavbarLink aria-current="page" href="/">
+                <MDBNavbarLink
+                  aria-current="page"
+                  href="/"
+                  onClick={() => setNavSelect("")}
+                >
                   Home Page
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink
-                  onClick={() => setShipManu(!shipManu)}
-                  className={shipManu ? "text-info" : ""}
+                  onClick={() => navToggle("shipManu")}
+                  className={navSelect === "shipManu" ? "text-info" : ""}
                 >
                   Ship Manufacturing{" "}
-                  {shipManu ? (
-                    <i className="fas fa-times" />
+                  {navSelect === "shipManu" ? (
+                    <i className="fas fa-times" style={{ color: "red" }} />
                   ) : (
                     <i className="fas fa-sync" />
                   )}
+                  <br />
+                  {navSelect === "shipManu" && (
+                    <div className="text-center">
+                      <i className="fas fa-arrow-down" />
+                    </div>
+                  )}
                 </MDBNavbarLink>
               </MDBNavbarItem>
-              {!shipManu && (
-                <>
-                  <MDBNavbarItem>
-                    <MDBNavbarLink>
-                      Citadel Manufacturing <i className="fas fa-sync" />
-                    </MDBNavbarLink>
-                  </MDBNavbarItem>
-                  <MDBNavbarItem>
-                    <MDBNavbarLink>
-                      Reprocessing <i className="fas fa-sync" />
-                    </MDBNavbarLink>
-                  </MDBNavbarItem>
-                  <MDBNavbarItem>
-                    <MDBNavbarLink>
-                      Jump Gate Refuel <i className="fas fa-sync" />
-                    </MDBNavbarLink>
-                  </MDBNavbarItem>
-                  <MDBNavbarItem>
-                    <MDBNavbarLink>
-                      API for Geeks <i className="fas fa-sync" />
-                    </MDBNavbarLink>
-                  </MDBNavbarItem>
-                  <MDBNavbarItem>
-                    <MDBNavbarLink>
-                      About <i className="fas fa-sync" />
-                    </MDBNavbarLink>
-                  </MDBNavbarItem>
-                </>
-              )}
+              <MDBNavbarItem>
+                <MDBNavbarLink>
+                  Citadel Manufacturing <i className="fas fa-sync" />
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink>
+                  Reprocessing <i className="fas fa-sync" />
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink>
+                  Jump Gate Refuel <i className="fas fa-sync" />
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink>
+                  API for Geeks <i className="fas fa-sync" />
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink>
+                  About <i className="fas fa-sync" />
+                </MDBNavbarLink>
+              </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>
           <div style={{ color: "lightgrey" }}>
@@ -95,7 +115,7 @@ const Navbar = () => {
           </div>
         </MDBContainer>
       </MDBNavbar>
-      {shipManu && <ShipNavbar />}
+      {navSelect === "shipManu" && <ShipNavbar />}
     </>
   );
 };

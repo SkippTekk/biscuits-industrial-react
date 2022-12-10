@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import Frigate from "../Frigate";
 import Cruiser from "../Cruiser";
 import Battleship from "../Battleship";
+
+import FetchShipData from "../../../../utils/FetchShipData";
 
 import {
   MDBDropdown,
@@ -8,7 +11,19 @@ import {
   MDBDropdownMenu,
 } from "mdb-react-ui-kit";
 
-const Edencom = () => {
+const Edencom = (props) => {
+  const [ships, setShips] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      FetchShipData(props.race)
+        .then((res) => setShips(res))
+        .catch((err) => console.warn(err));
+    };
+
+    fetchData();
+  }, [props.race]);
+
   return (
     <MDBDropdown group>
       <MDBDropdownToggle tag="a" className="nav-link">
@@ -16,21 +31,21 @@ const Edencom = () => {
       </MDBDropdownToggle>
       <MDBDropdownMenu dark className="bg-dark">
         <Frigate
-          frigate={[
-            { name: "Skybreaker", url: "http://stuff.com" },
-          ]}
+          frigate={ships?.filter((id) => {
+            return id.typeName === "Skybreaker";
+          })}
         />
 
         <Cruiser
-          cruiser={[
-            { name: "Stormbringer", url: "http://stuff.com" },
-          ]}
+          cruiser={ships?.filter((id) => {
+            return id.typeName === "Stormbringer";
+          })}
         />
 
         <Battleship
-          battle={[
-            { name: "Thunderchild", url: "http://stuff.com" },
-          ]}
+          battle={ships?.filter((id) => {
+            return id.typeName === "Thunderchild";
+          })}
         />
       </MDBDropdownMenu>
     </MDBDropdown>

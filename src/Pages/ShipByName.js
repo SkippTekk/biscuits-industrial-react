@@ -16,7 +16,7 @@ const ShipByName = () => {
   const getShipData = () => {
     try {
       axios
-        .get(`http://localhost:3001/api/get/ship/getShipByName/${ship}`)
+        .get(`http://localhost:3001/api/ship/getShipByName/${ship}`)
         .then((res) => {
           setShipData(res.data);
           setIsLoading(false);

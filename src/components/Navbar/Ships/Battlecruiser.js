@@ -14,9 +14,9 @@ const Battlecruiser = (props) => {
             </MDBDropdownItem>
             <ul className="dropdown-menu dropdown-submenu bg-dark">
               {props.cruiser.map((ship) => (
-                <MDBDropdownItem key={ship.name}>
-                  <MDBDropdownItem link href={ship.url}>
-                    {ship.name}
+                <MDBDropdownItem key={ship.typeName}>
+                  <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                    {ship.typeName}
                   </MDBDropdownItem>
                 </MDBDropdownItem>
               ))}
@@ -30,9 +30,9 @@ const Battlecruiser = (props) => {
             </MDBDropdownItem>
             <ul className="dropdown-menu dropdown-submenu bg-dark">
               {props.navy.map((ship) => (
-                <MDBDropdownItem key={ship.name}>
-                  <MDBDropdownItem link href={ship.url}>
-                    {ship.name}
+                <MDBDropdownItem key={ship.typeName}>
+                  <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                    {ship.typeName}
                   </MDBDropdownItem>
                 </MDBDropdownItem>
               ))}
@@ -46,9 +46,9 @@ const Battlecruiser = (props) => {
             </MDBDropdownItem>
             <ul className="dropdown-menu dropdown-submenu bg-dark">
               {props.command.map((ship) => (
-                <MDBDropdownItem key={ship.name}>
-                  <MDBDropdownItem link href={ship.url}>
-                    {ship.name}
+                <MDBDropdownItem key={ship.typeName}>
+                  <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
+                    {ship.typeName}
                   </MDBDropdownItem>
                 </MDBDropdownItem>
               ))}

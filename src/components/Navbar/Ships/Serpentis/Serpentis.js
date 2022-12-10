@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react";
 import Frigate from "../Frigate";
 import Cruiser from "../Cruiser";
 import Battleship from "../Battleship";
 import Capital from "../Captial";
+
+import FetchShipData from "../../../../utils/FetchShipData";
 
 import {
   MDBDropdown,
@@ -9,25 +12,53 @@ import {
   MDBDropdownMenu,
 } from "mdb-react-ui-kit";
 
-const Serpentis = () => {
+const Serpentis = (props) => {
+  const [ships, setShips] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      FetchShipData(props.race)
+        .then((res) => setShips(res))
+        .catch((err) => console.warn(err));
+    };
+
+    fetchData();
+  }, [props.race]);
+
   return (
     <MDBDropdown group>
       <MDBDropdownToggle tag="a" className="nav-link">
         Serpentis
       </MDBDropdownToggle>
       <MDBDropdownMenu dark className="bg-dark">
-        <Frigate frigate={[{ name: "Daredevil", url: "http://stuff.com" }]} />
+        <Frigate
+          frigate={ships?.filter((id) => {
+            return id.marketGroupID === 1365 && id.typeName !== "Astero";
+          })}
+        />
 
-        <Cruiser cruiser={[{ name: "Vigilant", url: "http://stuff.com" }]} />
+        <Cruiser
+          cruiser={ships?.filter((id) => {
+            return id.marketGroupID === 1371 && id.typeName !== "Stratios";
+          })}
+        />
 
         <Battleship
-          battle={[{ name: "Vindicator", url: "http://stuff.com" }]}
+          battle={ships?.filter((id) => {
+            return id.marketGroupID === 1380 && id.typeName !== "Nestor";
+          })}
         />
 
         <Capital
-          dread={[{ name: "Vehement", url: "http://stuff.com" }]}
-          carrier={[{ name: "Vendetta", url: "http://stuff.com" }]}
-          titan={[{ name: "Vanquisher", url: "http://stuff.com" }]}
+          dread={ships?.filter((id) => {
+            return id.marketGroupID === 3483;
+          })}
+          carrier={ships?.filter((id) => {
+            return id.marketGroupID === 1392;
+          })}
+          titan={ships?.filter((id) => {
+            return id.marketGroupID === 2287;
+          })}
         />
       </MDBDropdownMenu>
     </MDBDropdown>
