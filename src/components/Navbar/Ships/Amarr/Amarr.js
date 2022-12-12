@@ -7,13 +7,9 @@ import Battleship from "../Battleship";
 import Capital from "../Captial";
 import Industrial from "../Industrial";
 
-import FetchShipData from "../../../../utils/FetchShipData";
+import { Nav } from "rsuite";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import FetchShipData from "../../../../utils/FetchShipData";
 
 const Amarr = (props) => {
   const [ships, setShips] = useState();
@@ -29,11 +25,8 @@ const Amarr = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Amarr Empire
-      </MDBDropdownToggle>
-      <MDBDropdownMenu responsive="lg-start" dark className="bg-dark">
+    <Nav.Menu title="Amarr Empire">
+      <Nav.Menu title="Frigate Class">
         <Frigate
           frigate={ships?.filter((id) => {
             return id.marketGroupID === 72;
@@ -57,7 +50,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 2147;
           })}
         />
-
+      </Nav.Menu>
+      <Nav.Menu title="Destroyer Class">
         <Destroyer
           destroyer={ships?.filter((id) => {
             return id.marketGroupID === 465;
@@ -75,7 +69,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 1952;
           })}
         />
-
+      </Nav.Menu>
+      <Nav.Menu title="Cruiser Class">
         <Cruiser
           cruiser={ships?.filter((id) => {
             return id.marketGroupID === 74;
@@ -99,7 +94,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 1139;
           })}
         />
-
+      </Nav.Menu>
+      {/* <Nav.Item>
         <Battlecruiser
           cruiser={ships?.filter((id) => {
             return id.marketGroupID === 470;
@@ -111,7 +107,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 825;
           })}
         />
-
+      </Nav.Item>
+      <Nav.Item>
         <Battleship
           battle={ships?.filter((id) => {
             return id.marketGroupID === 79;
@@ -126,7 +123,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 1081;
           })}
         />
-
+      </Nav.Item>
+      <Nav.Item>
         <Capital
           dread={ships?.filter((id) => {
             return id.marketGroupID === 762;
@@ -141,7 +139,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 813;
           })}
         />
-
+      </Nav.Item>
+      <Nav.Item>
         <Industrial
           industrial={ships?.filter((id) => {
             return id.marketGroupID === 85;
@@ -156,8 +155,8 @@ const Amarr = (props) => {
             return id.marketGroupID === 1090;
           })}
         />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      </Nav.Item> */}
+    </Nav.Menu>
   );
 };
 

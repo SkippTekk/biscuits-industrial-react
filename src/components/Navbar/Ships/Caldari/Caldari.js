@@ -7,13 +7,9 @@ import Battleship from "../Battleship";
 import Capital from "../Captial";
 import Industrial from "../Industrial";
 
-import FetchShipData from "../../../../utils/FetchShipData";
+import { Nav } from "rsuite";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import FetchShipData from "../../../../utils/FetchShipData";
 
 const Caldari = (props) => {
   const [ships, setShips] = useState();
@@ -29,11 +25,8 @@ const Caldari = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Caldari State
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
+    <Nav.Menu title="Caldari State">
+      <Nav.Menu title="Frigate Class">
         <Frigate
           frigate={ships?.filter((id) => {
             return id.marketGroupID === 61;
@@ -57,7 +50,8 @@ const Caldari = (props) => {
             return id.marketGroupID === 2148;
           })}
         />
-
+      </Nav.Menu>
+      <Nav.Menu title="Destoyer Class">
         <Destroyer
           destroyer={ships?.filter((id) => {
             return id.marketGroupID === 466;
@@ -75,7 +69,8 @@ const Caldari = (props) => {
             return id.marketGroupID === 2021;
           })}
         />
-
+      </Nav.Menu>
+      <Nav.Menu title="Cruiser Class">
         <Cruiser
           cruiser={ships?.filter((id) => {
             return id.marketGroupID === 75;
@@ -99,65 +94,61 @@ const Caldari = (props) => {
             return id.marketGroupID === 1140;
           })}
         />
-
-        <Battlecruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 471;
-          })}
-          navy={ships?.filter((id) => {
-            return id.marketGroupID === 1704;
-          })}
-          command={ships?.filter((id) => {
-            return id.marketGroupID === 828;
-          })}
-        />
-
-        <Battleship
-          battle={ships?.filter((id) => {
-            return id.marketGroupID === 80;
-          })}
-          navy={ships?.filter((id) => {
-            return id.marketGroupID === 1379 && id.typeName !== "Thunderchild";
-          })}
-          blackops={ships?.filter((id) => {
-            return id.marketGroupID === 1077;
-          })}
-          marauder={ships?.filter((id) => {
-            return id.marketGroupID === 1082;
-          })}
-        />
-
-        <Capital
-          dread={ships?.filter((id) => {
-            return id.marketGroupID === 763;
-          })}
-          navy={ships?.filter((id) => {
-            return id.marketGroupID === 3484;
-          })}
-          carrier={ships?.filter((id) => {
-            return id.marketGroupID === 819 || id.marketGroupID === 2273;
-          })}
-          titan={ships?.filter((id) => {
-            return id.marketGroupID === 814;
-          })}
-        />
-
-        <Industrial
-          industrial={ships?.filter((id) => {
-            return id.marketGroupID === 84;
-          })}
-          transport={ships?.filter((id) => {
-            return id.marketGroupID === 631;
-          })}
-          freighter={ships?.filter((id) => {
-            return id.marketGroupID === 768;
-          })}
-          jump={ships?.filter((id) => {
-            return id.marketGroupID === 1091;
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      </Nav.Menu>
+      {/* <Battlecruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 471;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1704;
+        })}
+        command={ships?.filter((id) => {
+          return id.marketGroupID === 828;
+        })}
+      />
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 80;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1379 && id.typeName !== "Thunderchild";
+        })}
+        blackops={ships?.filter((id) => {
+          return id.marketGroupID === 1077;
+        })}
+        marauder={ships?.filter((id) => {
+          return id.marketGroupID === 1082;
+        })}
+      />
+      <Capital
+        dread={ships?.filter((id) => {
+          return id.marketGroupID === 763;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 3484;
+        })}
+        carrier={ships?.filter((id) => {
+          return id.marketGroupID === 819 || id.marketGroupID === 2273;
+        })}
+        titan={ships?.filter((id) => {
+          return id.marketGroupID === 814;
+        })}
+      />
+      <Industrial
+        industrial={ships?.filter((id) => {
+          return id.marketGroupID === 84;
+        })}
+        transport={ships?.filter((id) => {
+          return id.marketGroupID === 631;
+        })}
+        freighter={ships?.filter((id) => {
+          return id.marketGroupID === 768;
+        })}
+        jump={ships?.filter((id) => {
+          return id.marketGroupID === 1091;
+        })}
+      /> */}
+    </Nav.Menu>
   );
 };
 
