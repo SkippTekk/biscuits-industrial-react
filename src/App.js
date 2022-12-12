@@ -3,7 +3,6 @@ import { Container, Header, Footer, Content } from "rsuite";
 
 import SiteHeader from "./components/SiteHeader/SiteHeader";
 import SiteNavbar from "./components/Navbar/SiteNavbar";
-import Announcement from "./components/Announcement";
 import SiteFooter from "./components/SiteFooter/SiteFooter";
 
 import ShipByName from "./Pages/ShipByName";
@@ -19,7 +18,6 @@ function App() {
       </Header>
       <Content>
         <SiteNavbar />
-        <Announcement />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

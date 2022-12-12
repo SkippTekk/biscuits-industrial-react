@@ -1,29 +1,37 @@
-import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
+import { Breadcrumb } from "rsuite";
 
 const MiddleSection = (props) => {
   return (
-    <div className="text-center">
+    <div style={{ textAlign: "center" }}>
       <div className="ship">
         <h2>
-          <MDBBreadcrumb className="d-flex justify-content-center mb-5">
-            <MDBBreadcrumbItem>
-              <a href="/">Home</a>
-            </MDBBreadcrumbItem>
-            <MDBBreadcrumbItem>{props.ship.marketGroupName}</MDBBreadcrumbItem>
-            <MDBBreadcrumbItem>{props.ship.groupName}</MDBBreadcrumbItem>
-            <MDBBreadcrumbItem>
-              <a href={`/ship/${props.ship.typeName}`}>{props.ship.typeName}</a>
-            </MDBBreadcrumbItem>
-          </MDBBreadcrumb>
+          <Breadcrumb style={{ fontSize: "20px" }}>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item as="span">
+              {props.ship.marketGroupName}
+            </Breadcrumb.Item>
+            <Breadcrumb.Item as="span">{props.ship.groupName}</Breadcrumb.Item>
+            <Breadcrumb.Item
+              active
+              as="a"
+              href={`/ship/${props.ship.typeName}`}
+            >
+              {props.ship.typeName}
+            </Breadcrumb.Item>
+          </Breadcrumb>
         </h2>
         <h1>{props.ship.typeName}</h1>
         <br />
         <h5>Ship ID: {props.ship.typeID}</h5>
 
-        <table className="table mt-5">
-          <thead>
+        <table style={{ width: "100%", marginTop: "20px" }}>
+          <thead
+            style={{
+              borderBottom: "3px solid lightgrey",
+            }}
+          >
             <tr>
-              <th>
+              <th style={{ borderRight: "3px solid lightgrey" }}>
                 <h3>Mineral</h3>
               </th>
               <th>
@@ -34,17 +42,18 @@ const MiddleSection = (props) => {
           <tbody>
             {props.mats.map((mat) => {
               return (
-                <tr>
+                <tr style={{ borderBottom: "1px solid lightgrey" }}>
                   <td key={mat.typeName}>
                     <p>
                       <img
                         src={`https://images.evetech.net/types/${mat.materialTypeID}/icon`}
+                        alt={mat.typeName}
                       />
                     </p>
-                    <h5>{mat.typeName}</h5>
+                    <h5 style={{ marginBottom: "10px" }}>{mat.typeName}</h5>
                   </td>
-                  <td key={mat.quantity} className="pt-5">
-                    <h4>{mat.quantity}</h4>
+                  <td key={mat.quantity}>
+                    <h4>{Math.floor(mat.quantity).toLocaleString("en-US")}</h4>
                   </td>
                 </tr>
               );

@@ -1,5 +1,6 @@
 import DynamicMeta from "../components/DynamicMeta";
-import { FlexboxGrid, Col, Row, Container, Content } from "rsuite";
+import { FlexboxGrid, Col, Container, Content } from "rsuite";
+import Announcement from "../components/Announcement";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         img="https://images.evetech.net/characters/95046472/portrait"
       />
       <div className="show-grid">
+        <Announcement />
         <FlexboxGrid justify="center">
           <FlexboxGrid.Item as={Col} lg={8} colspan={26} order={1}>
             <Container>
@@ -103,7 +105,7 @@ const Home = () => {
                       maxHeight: "80%",
                       borderRadius: "15px",
                     }}
-                    alt="Ship Image goes Here, Mail SkippTekk or tweet @XGKIPPY for a fix"
+                    alt="SkippTekk"
                   />
                 </a>
               </Content>

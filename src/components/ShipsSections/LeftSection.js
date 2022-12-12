@@ -1,6 +1,6 @@
 const LeftSection = (props) => {
   return (
-    <div className="text-center">
+    <div style={{ textAlign: "center" }}>
       <a
         href={`https://wiki.eveuniversity.org/${props.ship.typeName}`}
         target="__blank"
@@ -11,11 +11,10 @@ const LeftSection = (props) => {
           target="__blank"
           src={`https://image.testeveonline.com/Render/${props.ship.typeID}_512.png`}
           style={{
-            maxWidth: "100%",
-            maxHeight: "100%",
+            maxWidth: "80%",
+            maxHeight: "80%",
             borderRadius: "15px",
           }}
-          className="mb-3"
           alt={`${props.ship.typeName} | ${props.ship.marketGroupName} ${props.ship.groupName}`}
         />
       </a>
