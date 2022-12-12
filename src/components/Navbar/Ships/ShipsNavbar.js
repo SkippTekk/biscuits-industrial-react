@@ -13,25 +13,31 @@ import Mordu from "./Mordu/Mordu";
 import Triglavian from "./Triglavian/Triglavian";
 import Edencom from "./Edencom/Edencom";
 
-import { Nav } from "rsuite";
+import { Nav, FlexboxGrid } from "rsuite";
 
 const ShipNavbar = () => {
   return (
-    <Nav>
-      <Amarr race="4" />
-      <Caldari race="1" />
-      <Gallante race="8" />
-      <Minmatar race="2" />
-      <Ore race="128" />
-      <Guristas race="1" />
-      <Sansha race="4" />
-      <BloodRaider race="4" />
-      <AngelCartel race="2" />
-      <Serpentis race="8" />
-      <Sisters race="8" />
-      <Mordu race="1" />
-      <Triglavian race="135" />
-      <Edencom race="1" />
+    <Nav style={{ borderTop: "1px solid darkgrey" }}>
+      <FlexboxGrid justify="center">
+        <div>
+          <Amarr race="4" />
+          <Caldari race="1" />
+          <Gallante race="8" />
+          <Minmatar race="2" />
+          <Ore race="128" />
+          <Guristas race="1" />
+          <Sansha race="4" />
+        </div>
+        <div>
+          <BloodRaider race="4" />
+          <AngelCartel race="2" />
+          <Serpentis race="8" />
+          <Sisters race="8" />
+          <Mordu race="1" />
+          <Triglavian race="135" />
+          <Edencom race="1" />
+        </div>
+      </FlexboxGrid>
     </Nav>
   );
 };

@@ -4,12 +4,7 @@ import Cruiser from "../Cruiser";
 import Battleship from "../Battleship";
 
 import FetchShipData from "../../../../utils/FetchShipData";
-
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const AngelCartel = (props) => {
   const [ships, setShips] = useState();
@@ -25,30 +20,25 @@ const AngelCartel = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Angel Cartel
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.marketGroupID === 1365;
-          })}
-        />
+    <Nav.Menu title="Angel Cartel">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 1365;
+        })}
+      />
 
-        <Cruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 1371;
-          })}
-        />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 1371;
+        })}
+      />
 
-        <Battleship
-          battle={ships?.filter((id) => {
-            return id.marketGroupID === 1380;
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 1380;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

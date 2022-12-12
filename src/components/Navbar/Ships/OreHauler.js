@@ -1,21 +1,14 @@
-import { MDBDropdownItem, MDBIcon } from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const OreHauler = (props) => {
   return (
-    <MDBDropdownItem>
-      <MDBDropdownItem link href="#">
-        Hauler <MDBIcon fas icon="caret-right" />
-      </MDBDropdownItem>
-      <ul className="dropdown-menu dropdown-submenu bg-dark">
-        {props.hauler.map((ship) => (
-          <MDBDropdownItem key={ship.typeName}>
-            <MDBDropdownItem link href={`/ship/${ship.typeName}`}>
-              {ship.typeName}
-            </MDBDropdownItem>
-          </MDBDropdownItem>
-        ))}
-      </ul>
-    </MDBDropdownItem>
+    <Nav.Menu title="Ore Hauler">
+      {props.hauler?.map((ship) => (
+        <Nav.Item as="a" key={ship.typeName} href={`/ship/${ship.typeName}`}>
+          {ship.typeName}
+        </Nav.Item>
+      ))}
+    </Nav.Menu>
   );
 };
 

@@ -2,7 +2,7 @@ import { Nav } from "rsuite";
 
 const Cruiser = (props) => {
   return (
-    <>
+    <Nav.Menu title="Cruiser Class">
       {props.cruiser && (
         <Nav.Menu title="Cruiser">
           {props.cruiser?.map((ship) => {
@@ -108,7 +108,7 @@ const Cruiser = (props) => {
           })}
         </Nav.Menu>
       )}
-    </>
+    </Nav.Menu>
   );
 };
 

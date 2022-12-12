@@ -8,11 +8,7 @@ import Industrial from "../Industrial";
 
 import FetchShipData from "../../../../utils/FetchShipData";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const Ore = (props) => {
   const [ships, setShips] = useState();
@@ -28,54 +24,44 @@ const Ore = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        ORE
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.marketGroupID === 1616;
-          })}
-          expedition={ships?.filter((id) => {
-            return id.marketGroupID === 1924;
-          })}
-        />
-
-        <MiningBarge
-          barge={ships?.filter((id) => {
-            return id.marketGroupID === 494;
-          })}
-        />
-
-        <Exhumer
-          exhumer={ships?.filter((id) => {
-            return id.marketGroupID === 874;
-          })}
-        />
-
-        <OreHauler
-          hauler={ships?.filter((id) => {
-            return id.marketGroupID === 1390;
-          })}
-        />
-
-        <Rorqual
-          rorq={ships?.filter((id) => {
-            return id.marketGroupID === 1048;
-          })}
-        />
-
-        <Industrial
-          industrial={ships?.filter((id) => {
-            return id.marketGroupID === 2336;
-          })}
-          freighter={ships?.filter((id) => {
-            return id.marketGroupID === 1950;
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+    <Nav.Menu title="ORE">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 1616;
+        })}
+        expedition={ships?.filter((id) => {
+          return id.marketGroupID === 1924;
+        })}
+      />
+      <MiningBarge
+        barge={ships?.filter((id) => {
+          return id.marketGroupID === 494;
+        })}
+      />
+      <Exhumer
+        exhumer={ships?.filter((id) => {
+          return id.marketGroupID === 874;
+        })}
+      />
+      <OreHauler
+        hauler={ships?.filter((id) => {
+          return id.marketGroupID === 1390;
+        })}
+      />
+      <Rorqual
+        rorq={ships?.filter((id) => {
+          return id.marketGroupID === 1048;
+        })}
+      />
+      <Industrial
+        industrial={ships?.filter((id) => {
+          return id.marketGroupID === 2336;
+        })}
+        freighter={ships?.filter((id) => {
+          return id.marketGroupID === 1950;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

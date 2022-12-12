@@ -5,11 +5,7 @@ import Battleship from "../Battleship";
 
 import FetchShipData from "../../../../utils/FetchShipData";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const Sisters = (props) => {
   const [ships, setShips] = useState();
@@ -25,30 +21,25 @@ const Sisters = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Servant Sisters of Eve
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.marketGroupID === 1365 && id.typeName !== "Daredevil";
-          })}
-        />
+    <Nav.Menu title="Sisters of Eve">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 1365 && id.typeName !== "Daredevil";
+        })}
+      />
 
-        <Cruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 1371 && id.typeName !== "Vigilant";
-          })}
-        />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 1371 && id.typeName !== "Vigilant";
+        })}
+      />
 
-        <Battleship
-          battle={ships?.filter((id) => {
-            return id.marketGroupID === 1380 && id.typeName !== "Vindicator";
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 1380 && id.typeName !== "Vindicator";
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

@@ -26,76 +26,73 @@ const Caldari = (props) => {
 
   return (
     <Nav.Menu title="Caldari State">
-      <Nav.Menu title="Frigate Class">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.marketGroupID === 61;
-          })}
-          navy={ships?.filter((id) => {
-            return id.marketGroupID === 1366 && id.typeName !== "Skybreaker";
-          })}
-          interceptor={ships?.filter((id) => {
-            return id.marketGroupID === 401;
-          })}
-          assault={ships?.filter((id) => {
-            return id.marketGroupID === 434;
-          })}
-          covert={ships?.filter((id) => {
-            return id.marketGroupID === 422;
-          })}
-          elecattack={ships?.filter((id) => {
-            return id.marketGroupID === 1067;
-          })}
-          logi={ships?.filter((id) => {
-            return id.marketGroupID === 2148;
-          })}
-        />
-      </Nav.Menu>
-      <Nav.Menu title="Destoyer Class">
-        <Destroyer
-          destroyer={ships?.filter((id) => {
-            return id.marketGroupID === 466;
-          })}
-          navy={ships?.filter((id) => {
-            return id.marketGroupID === 3481;
-          })}
-          interdictor={ships?.filter((id) => {
-            return id.marketGroupID === 829;
-          })}
-          commdestroyer={ships?.filter((id) => {
-            return id.marketGroupID === 2131;
-          })}
-          tacdestroyer={ships?.filter((id) => {
-            return id.marketGroupID === 2021;
-          })}
-        />
-      </Nav.Menu>
-      <Nav.Menu title="Cruiser Class">
-        <Cruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 75;
-          })}
-          navy={ships?.filter((id) => {
-            return id.marketGroupID === 1370 && id.typeName !== "Stormbringer";
-          })}
-          recon={ships?.filter((id) => {
-            return id.marketGroupID === 830;
-          })}
-          heavy={ships?.filter((id) => {
-            return id.marketGroupID === 450;
-          })}
-          interdiction={ships?.filter((id) => {
-            return id.marketGroupID === 1072;
-          })}
-          logi={ships?.filter((id) => {
-            return id.marketGroupID === 439;
-          })}
-          strat={ships?.filter((id) => {
-            return id.marketGroupID === 1140;
-          })}
-        />
-      </Nav.Menu>
-      {/* <Battlecruiser
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 61;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1366 && id.typeName !== "Skybreaker";
+        })}
+        interceptor={ships?.filter((id) => {
+          return id.marketGroupID === 401;
+        })}
+        assault={ships?.filter((id) => {
+          return id.marketGroupID === 434;
+        })}
+        covert={ships?.filter((id) => {
+          return id.marketGroupID === 422;
+        })}
+        elecattack={ships?.filter((id) => {
+          return id.marketGroupID === 1067;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 2148;
+        })}
+      />
+
+      <Destroyer
+        destroyer={ships?.filter((id) => {
+          return id.marketGroupID === 466;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 3481;
+        })}
+        interdictor={ships?.filter((id) => {
+          return id.marketGroupID === 829;
+        })}
+        commdestroyer={ships?.filter((id) => {
+          return id.marketGroupID === 2131;
+        })}
+        tacdestroyer={ships?.filter((id) => {
+          return id.marketGroupID === 2021;
+        })}
+      />
+
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 75;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1370 && id.typeName !== "Stormbringer";
+        })}
+        recon={ships?.filter((id) => {
+          return id.marketGroupID === 830;
+        })}
+        heavy={ships?.filter((id) => {
+          return id.marketGroupID === 450;
+        })}
+        interdiction={ships?.filter((id) => {
+          return id.marketGroupID === 1072;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 439;
+        })}
+        strat={ships?.filter((id) => {
+          return id.marketGroupID === 1140;
+        })}
+      />
+
+      <Battlecruiser
         cruiser={ships?.filter((id) => {
           return id.marketGroupID === 471;
         })}
@@ -106,6 +103,7 @@ const Caldari = (props) => {
           return id.marketGroupID === 828;
         })}
       />
+
       <Battleship
         battle={ships?.filter((id) => {
           return id.marketGroupID === 80;
@@ -120,6 +118,7 @@ const Caldari = (props) => {
           return id.marketGroupID === 1082;
         })}
       />
+
       <Capital
         dread={ships?.filter((id) => {
           return id.marketGroupID === 763;
@@ -134,6 +133,7 @@ const Caldari = (props) => {
           return id.marketGroupID === 814;
         })}
       />
+
       <Industrial
         industrial={ships?.filter((id) => {
           return id.marketGroupID === 84;
@@ -147,7 +147,7 @@ const Caldari = (props) => {
         jump={ships?.filter((id) => {
           return id.marketGroupID === 1091;
         })}
-      /> */}
+      />
     </Nav.Menu>
   );
 };

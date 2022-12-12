@@ -1,9 +1,8 @@
 import { Nav } from "rsuite";
 
 const Frigate = (props) => {
-  console.log(props);
   return (
-    <>
+    <Nav.Menu title="Frigate Class">
       {props.frigate && (
         <Nav.Menu title="Frigate">
           {props.frigate?.map((ship) => {
@@ -124,7 +123,7 @@ const Frigate = (props) => {
           })}
         </Nav.Menu>
       )}
-    </>
+    </Nav.Menu>
   );
 };
 

@@ -5,11 +5,7 @@ import Battleship from "../Battleship";
 
 import FetchShipData from "../../../../utils/FetchShipData";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const Edencom = (props) => {
   const [ships, setShips] = useState();
@@ -25,30 +21,25 @@ const Edencom = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Edencom
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.typeName === "Skybreaker";
-          })}
-        />
+    <Nav.Menu title="Edencom">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.typeName === "Skybreaker";
+        })}
+      />
 
-        <Cruiser
-          cruiser={ships?.filter((id) => {
-            return id.typeName === "Stormbringer";
-          })}
-        />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.typeName === "Stormbringer";
+        })}
+      />
 
-        <Battleship
-          battle={ships?.filter((id) => {
-            return id.typeName === "Thunderchild";
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.typeName === "Thunderchild";
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

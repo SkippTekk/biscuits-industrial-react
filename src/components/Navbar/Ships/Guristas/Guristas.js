@@ -6,11 +6,7 @@ import Capital from "../Captial";
 
 import FetchShipData from "../../../../utils/FetchShipData";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const Guristas = (props) => {
   const [ships, setShips] = useState();
@@ -26,42 +22,34 @@ const Guristas = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Guristas Pirates
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.marketGroupID === 1365 && id.typeName !== "Garmur";
-          })}
-        />
-
-        <Cruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 1371 && id.typeName !== "Orthrus";
-          })}
-        />
-
-        <Battlecruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 1380 && id.typeName !== "Barghest";
-          })}
-        />
-
-        <Capital
-          dread={ships?.filter((id) => {
-            return id.marketGroupID === 3483;
-          })}
-          carrier={ships?.filter((id) => {
-            return id.marketGroupID === 2357;
-          })}
-          titan={ships?.filter((id) => {
-            return id.marketGroupID === 2287;
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+    <Nav.Menu title="Guristas Pirates">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 1365 && id.typeName !== "Garmur";
+        })}
+      />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 1371 && id.typeName !== "Orthrus";
+        })}
+      />
+      <Battlecruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 1380 && id.typeName !== "Barghest";
+        })}
+      />
+      <Capital
+        dread={ships?.filter((id) => {
+          return id.marketGroupID === 3483;
+        })}
+        carrier={ships?.filter((id) => {
+          return id.marketGroupID === 2357;
+        })}
+        titan={ships?.filter((id) => {
+          return id.marketGroupID === 2287;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

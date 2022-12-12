@@ -2,9 +2,10 @@ import Clock from "../Clock";
 import ShipNavbar from "./Ships/ShipsNavbar";
 import { useState, useEffect } from "react";
 import { Navbar, Nav } from "rsuite";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const SiteNavbar = () => {
-  const [showNav, setShowNav] = useState(false);
   const [navSelect, setNavSelect] = useState();
 
   const navToggle = (opt) => {
@@ -40,10 +41,28 @@ const SiteNavbar = () => {
         }}
       >
         <Nav>
-          <Nav.Item as="a" href="/">
-            Home Page
+          <Nav.Item as="a" href="/" onClick={() => navToggle("home")}>
+            <FontAwesomeIcon icon={faHouse} />{" "}
+            <span style={{ paddingLeft: "5px" }}>Home</span>
           </Nav.Item>
-          <Nav.Item>Ship Manufacturing</Nav.Item>
+          <Nav.Item
+            onClick={() => navToggle("shipManu")}
+            style={navSelect === "shipManu" ? { color: "skyblue" } : null}
+          >
+            {navSelect === "shipManu" ? (
+              <>
+                {" "}
+                <span style={{ paddingRight: "5px" }}>Ship Manufacturing</span>
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  size="lg"
+                  style={{ color: "red" }}
+                />
+              </>
+            ) : (
+              "Ship Manufacturing"
+            )}
+          </Nav.Item>
           <Nav.Item>Citadel Manufacturing</Nav.Item>
           <Nav.Item>Reprocessing</Nav.Item>
           <Nav.Item>Jump Gate Refuel</Nav.Item>
@@ -63,7 +82,7 @@ const SiteNavbar = () => {
           fontWeight: "bold",
         }}
       >
-        <ShipNavbar />
+        {navSelect === "shipManu" && <ShipNavbar />}
       </Navbar>
     </>
   );
