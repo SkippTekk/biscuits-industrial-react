@@ -24,7 +24,11 @@ const SiteNavbar = () => {
 
   useEffect(() => {
     const data = localStorage.getItem("navSelect");
-    setNavSelect(JSON.parse(data));
+    if (data === undefined) {
+      localStorage.setItem("navSelect", JSON.stringify("home"));
+    } else {
+      setNavSelect(JSON.parse(data));
+    }
   }, []);
 
   useEffect(() => {

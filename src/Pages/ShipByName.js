@@ -50,7 +50,7 @@ const ShipByName = () => {
             <FlexboxGrid.Item colspan={6}>
               <LeftSection ship={shipData[0].ship} />
             </FlexboxGrid.Item>
-            <FlexboxGrid.Item colspan={6}>
+            <FlexboxGrid.Item colspan={9}>
               <MiddleSection
                 ship={shipData[0].ship}
                 mats={shipData[1].materials}
