@@ -42,8 +42,11 @@ const MiddleSection = (props) => {
           <tbody>
             {props.mats.map((mat) => {
               return (
-                <tr style={{ borderBottom: "1px solid lightgrey" }}>
-                  <td key={mat.typeName}>
+                <tr
+                  style={{ borderBottom: "1px solid lightgrey" }}
+                  key={mat.typeName}
+                >
+                  <td>
                     <p>
                       <img
                         src={`https://images.evetech.net/types/${mat.materialTypeID}/icon`}
