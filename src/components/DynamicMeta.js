@@ -9,10 +9,12 @@ const DynamicMeta = (props) => {
       </title>
       <meta property="og:url" content={props.url} />
       <meta
+        name="title"
         property="og:title"
         content={`Skipptekk.com | How to build a ${props.ship}`}
       />
       <meta
+        name="description"
         property="og:description"
         content="Curated by Biscuits Industrial for Eve Online"
       />
