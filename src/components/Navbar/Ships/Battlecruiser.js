@@ -1,8 +1,9 @@
 import { Nav } from "rsuite";
+import BattlecruiserIcon from "../../ShipIcons/BattlecruiserIcon";
 
 const Battlecruiser = (props) => {
   return (
-    <Nav.Menu title="Battlecruiser Class">
+    <Nav.Menu title=" Battlecruiser Class" icon={<BattlecruiserIcon />}>
       {props.cruiser && (
         <Nav.Menu title="Cruiser">
           {props.cruiser?.map((ship) => {

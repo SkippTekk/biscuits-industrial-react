@@ -1,13 +1,16 @@
+import { SelectPicker } from "rsuite";
+
+const opts = ["Highsec", "Lowsec", "Nullsec", "Wormhole"].map((opt) => ({
+  label: opt,
+  value: opt,
+}));
+
 const Location = () => {
-    return (
-    <div className="Location">
-        <legend>Select your Location</legend>
-            <select className="forum-select" id="BPO">
-                <option value="Highsec">Highsec</option>
-                <option value="Lowsec">Lowsec</option>
-                <option value="Null/WormHole">Null/WormHole</option>
-            </select>
-    </div>  
-    )
-}
+  return (
+    <div style={{ margin: "10px", padding: "5px" }}>
+      <h4>Select your Location</h4>
+      <SelectPicker data={opts} searchable={false} />
+    </div>
+  );
+};
 export default Location;

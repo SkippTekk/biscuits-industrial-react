@@ -26,7 +26,7 @@ const Ore = (props) => {
   return (
     <Nav.Menu title="ORE">
       <Frigate
-        frigate={ships?.filter((id) => {
+        mining={ships?.filter((id) => {
           return id.marketGroupID === 1616;
         })}
         expedition={ships?.filter((id) => {
@@ -54,10 +54,10 @@ const Ore = (props) => {
         })}
       />
       <Industrial
-        industrial={ships?.filter((id) => {
+        command={ships?.filter((id) => {
           return id.marketGroupID === 2336;
         })}
-        freighter={ships?.filter((id) => {
+        orefreighter={ships?.filter((id) => {
           return id.marketGroupID === 1950;
         })}
       />

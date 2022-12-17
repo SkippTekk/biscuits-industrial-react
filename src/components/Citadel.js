@@ -1,18 +1,22 @@
+import { SelectPicker } from "rsuite";
+
+const opts = [
+  "Asthrahus",
+  "Athanor",
+  "Azbel",
+  "Fortizar",
+  "Keepstar",
+  "Raitaru",
+  "Sotiyo",
+  "Tatara",
+].map((opt) => ({ label: opt, value: opt }));
+
 const Citadel = () => {
-    return (
-    <div className="Citadel">
-        <legend>Select your Citadel</legend>
-            <select>
-                <option value="Athanor">Athanor</option>
-                <option value="Tatara">Tatara</option>
-                <option value="Raitaru">Raitaru</option>
-                <option value="Azbel">Azbel</option>
-                <option value="Sotiyo">Sotiyo</option>
-                <option value="Astrahus">Astrahus</option>
-                <option value="Fortizar">Fortizar</option>
-                <option value="Keepstar">Keepstar</option>
-            </select>
-    </div> 
-    )
-}
+  return (
+    <div style={{ margin: "10px", padding: "5px" }}>
+      <h4>Select your Citadel</h4>
+      <SelectPicker data={opts} searchable={false} />
+    </div>
+  );
+};
 export default Citadel;

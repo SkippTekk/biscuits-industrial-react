@@ -53,13 +53,13 @@ const ShipByName = () => {
               <LeftSection ship={shipData[0].ship} />
             </FlexboxGrid.Item>
             <FlexboxGrid.Item colspan={9}>
-              <MiddleSection
+              <MiddleSection ship={shipData[0].ship} />
+            </FlexboxGrid.Item>
+            <FlexboxGrid.Item colspan={6}>
+              <RightSection
                 ship={shipData[0].ship}
                 mats={shipData[1].materials}
               />
-            </FlexboxGrid.Item>
-            <FlexboxGrid.Item colspan={6}>
-              <RightSection ship={shipData[0].ship} />
             </FlexboxGrid.Item>
           </FlexboxGrid>
         </>

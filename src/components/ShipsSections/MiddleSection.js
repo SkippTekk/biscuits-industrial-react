@@ -1,6 +1,11 @@
 import { Breadcrumb } from "rsuite";
 import { useState, useEffect } from "react";
 import ShipFactionFilter from "../../utils/ShipFactionFilter";
+import BPO from "../BPO";
+import BuildCount from "../BuildCount";
+import Citadel from "../Citadel";
+import CitadelRig from "../CitadelRig";
+import Location from "../Location";
 
 const MiddleSection = (props) => {
   const [filteredShip, setFilteredShip] = useState();
@@ -13,7 +18,7 @@ const MiddleSection = (props) => {
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       <div className="ship">
         <h2>
-          <Breadcrumb style={{ fontSize: "15px" }} maxItems="10" separator=">">
+          <Breadcrumb style={{ fontSize: "15px" }} maxItems={10} separator=">">
             <Breadcrumb.Item as="span">Neocom</Breadcrumb.Item>
             <Breadcrumb.Item as="span">Ship</Breadcrumb.Item>
             <Breadcrumb.Item as="span">Ship Tree</Breadcrumb.Item>
@@ -32,55 +37,19 @@ const MiddleSection = (props) => {
             </Breadcrumb.Item>
           </Breadcrumb>
         </h2>
+        <hr />
         <div style={{ textAlign: "center" }}>
           <h1>{props.ship.typeName}</h1>
           <br />
           <h5>Ship ID: {props.ship.typeID}</h5>
         </div>
-
+        <hr />
         <div style={{ textAlign: "center" }}>
-          <table style={{ width: "100%", marginTop: "20px" }}>
-            <thead
-              style={{
-                borderBottom: "3px solid lightgrey",
-              }}
-            >
-              <tr>
-                <th style={{ borderRight: "3px solid lightgrey" }}>
-                  <h3>Mineral</h3>
-                </th>
-                <th>
-                  <h3>Quantity</h3>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {props.mats.map((mat) => {
-                return (
-                  <tr
-                    style={{ borderBottom: "1px solid lightgrey" }}
-                    key={mat.typeName}
-                  >
-                    <td>
-                      <p>
-                        <img
-                          src={`https://images.evetech.net/types/${mat.materialTypeID}/icon`}
-                          alt={mat.typeName}
-                          style={{ width: "15%", height: "auto" }}
-                        />
-                      </p>
-                      <h5 style={{ marginBottom: "10px" }}>{mat.typeName}</h5>
-                    </td>
-                    <td key={mat.quantity}>
-                      <h4>
-                        {Math.floor(mat.quantity).toLocaleString("en-US")}
-                      </h4>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <BPO />
+          <BuildCount />
+          <Citadel />
+          <CitadelRig />
+          <Location />
         </div>
       </div>
     </div>

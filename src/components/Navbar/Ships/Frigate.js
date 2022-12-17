@@ -1,11 +1,31 @@
 import { Nav } from "rsuite";
+import FrigateIcon from "../../ShipIcons/FrigateIcon";
+import MiningFrigateIcon from "../../ShipIcons/MiningFrigateIcon";
 
 const Frigate = (props) => {
   return (
-    <Nav.Menu title="Frigate Class">
+    <Nav.Menu
+      title=" Frigate Class"
+      icon={props.mining ? <MiningFrigateIcon /> : <FrigateIcon />}
+    >
       {props.frigate && (
         <Nav.Menu title="Frigate">
           {props.frigate?.map((ship) => {
+            return (
+              <Nav.Item
+                as="a"
+                key={ship.typeName}
+                href={`/ship/${ship.typeName}`}
+              >
+                {ship.typeName}
+              </Nav.Item>
+            );
+          })}
+        </Nav.Menu>
+      )}
+      {props.mining && (
+        <Nav.Menu title="Frigate">
+          {props.mining?.map((ship) => {
             return (
               <Nav.Item
                 as="a"

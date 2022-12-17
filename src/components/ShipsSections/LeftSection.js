@@ -9,7 +9,7 @@ const LeftSection = (props) => {
         <img
           type="image"
           target="__blank"
-          src={`https://image.testeveonline.com/Render/${props.ship.typeID}_512.png`}
+          src={`https://images.evetech.net/types/${props.ship.typeID}/render`}
           style={{
             maxWidth: "80%",
             maxHeight: "80%",
@@ -18,7 +18,7 @@ const LeftSection = (props) => {
           alt={`${props.ship.typeName} | ${props.ship.marketGroupName} ${props.ship.groupName}`}
         />
       </a>
-      <h2>Default values of the ship:</h2>
+      <h3>Default values of the ship:</h3>
       <h5>
         <strong>Ship Capacitor:</strong>{" "}
         {props.ship.capacity.toLocaleString("en-US")} MW{" "}
@@ -37,6 +37,11 @@ const LeftSection = (props) => {
       <h5>
         <strong>Group ID:</strong> {props.ship.groupID}
       </h5>
+      <hr />
+      <div style={{ textAlign: "center", marginTop: "5px" }}>
+        <h3>Ship Description</h3>
+        <h5>{props.ship.description.replace("<i>", "").replace("</i>", "")}</h5>
+      </div>
     </div>
   );
 };
