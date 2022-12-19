@@ -9,9 +9,9 @@ import RightSection from "../components/ShipsSections/RightSection";
 import DynamicMeta from "../components/DynamicMeta";
 
 const ShipByName = () => {
+  let { ship } = useParams();
   const [shipData, setShipData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  let { ship } = useParams();
 
   const getShipData = () => {
     try {

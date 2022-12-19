@@ -1,4 +1,9 @@
+import { shipManuActions } from "../store/shipmanu-slice";
+import { useSelector } from "react-redux";
+
 const RightSection = (props) => {
+  const bpoME = useSelector((state) => state.shipManu.bpoME);
+
   return (
     <div style={{ textAlign: "center" }}>
       <h3>Bill of Materials</h3>
@@ -36,7 +41,11 @@ const RightSection = (props) => {
                     <h5 style={{ marginBottom: "10px" }}>{mat.typeName}</h5>
                   </td>
                   <td key={mat.quantity}>
-                    <h4>{Math.floor(mat.quantity).toLocaleString("en-US")}</h4>
+                    <h4>
+                      {(Math.floor(mat.quantity) * (1 - bpoME)).toLocaleString(
+                        "en-US"
+                      )}
+                    </h4>
                   </td>
                 </tr>
               );
