@@ -13,7 +13,8 @@ import Mordu from "./Mordu/Mordu";
 import Triglavian from "./Triglavian/Triglavian";
 import Edencom from "./Edencom/Edencom";
 
-import { Nav, FlexboxGrid } from "rsuite";
+import { Nav, FlexboxGrid, AutoComplete, InputGroup } from "rsuite";
+import SearchIcon from "@rsuite/icons/Search";
 
 const ShipNavbar = () => {
   return (

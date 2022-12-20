@@ -78,7 +78,7 @@ const MiddleSection = (props) => {
           <Location />
           <hr />
           <CitadelRig />
-          <ButtonToolbar block>
+          <ButtonToolbar>
             {bpoME !== null || citRig !== null || loc !== null ? (
               <Button
                 disabled={
