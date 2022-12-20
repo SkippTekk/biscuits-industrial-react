@@ -1,6 +1,15 @@
 import { InputNumber } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { shipManuActions } from "../components/store/shipmanu-slice";
 
 const BuildCount = () => {
+  const dispatch = useDispatch();
+  const buildQuantity = useSelector((state) => state.shipManu.buildQuantity);
+
+  const handleChange = (opt) => {
+    dispatch(shipManuActions.setBuildQuantity(opt));
+  };
+
   return (
     <div
       style={{
@@ -11,9 +20,16 @@ const BuildCount = () => {
         padding: "5px",
       }}
     >
-      <h4>How many ships being built?</h4>
-      <div style={{ width: "75px" }}>
-        <InputNumber size="sm" placeholder="0" max={1000} min={0} />
+      <h4>How many ships are being built?</h4>
+      <div style={{ width: "150px" }}>
+        <InputNumber
+          size="sm"
+          placeholder="0"
+          max={1000}
+          min={1}
+          onChange={handleChange}
+          value={buildQuantity}
+        />
       </div>
     </div>
   );

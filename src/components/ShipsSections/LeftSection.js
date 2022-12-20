@@ -40,7 +40,7 @@ const LeftSection = (props) => {
       <hr />
       <div style={{ textAlign: "center", marginTop: "5px" }}>
         <h3>Ship Description</h3>
-        <h5>{props.ship.description.replace("<i>", "").replace("</i>", "")}</h5>
+        <h5>{props.ship.description.replaceAll("<i>", "")}</h5>
       </div>
     </div>
   );

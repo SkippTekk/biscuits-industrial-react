@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initState = {
-  bpoME: 1,
+  bpoME: null,
   buildQuantity: 1,
-  citadel: 0,
   citadelRig: null,
   location: null,
 };
@@ -17,9 +16,6 @@ const shipManuSlice = createSlice({
     },
     setBuildQuantity(state, action) {
       state.buildQuantity = action.payload;
-    },
-    setCitadel(state, action) {
-      state.citadel = action.payload;
     },
     setCitadelRig(state, action) {
       state.citadelRig = action.payload;

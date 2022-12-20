@@ -4,8 +4,9 @@ const SiteHeader = () => {
       style={{
         textAlign: "center",
         padding: "30px",
-        backgroundColor: "#FFFFFF",
+        color: "#FFFFFF",
       }}
+      className="header"
     >
       <h1>Biscuits Industrial</h1>
       <br />

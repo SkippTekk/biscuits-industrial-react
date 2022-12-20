@@ -1,8 +1,42 @@
-import { shipManuActions } from "../store/shipmanu-slice";
 import { useSelector } from "react-redux";
 
 const RightSection = (props) => {
   const bpoME = useSelector((state) => state.shipManu.bpoME);
+  const buildQuantity = useSelector((state) => state.shipManu.buildQuantity);
+  const citRig = useSelector((state) => state.shipManu.citadelRig);
+  const loc = useSelector((state) => state.shipManu.location);
+
+  const convertLoc = () => {
+    if (loc === "Highsec") {
+      return 0.01;
+    }
+
+    if (loc === "Lowsec") {
+      return 0.019;
+    }
+
+    if (loc === "Nullsec" || loc === "Wormhole") {
+      return 0.021;
+    }
+
+    if (loc === null) {
+      return 0;
+    }
+  };
+
+  const convertRig = () => {
+    if (citRig === "Tier 1") {
+      return 0.02;
+    }
+
+    if (citRig === "Tier 2") {
+      return 0.024;
+    }
+
+    if (citRig === null) {
+      return 0;
+    }
+  };
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -42,9 +76,16 @@ const RightSection = (props) => {
                   </td>
                   <td key={mat.quantity}>
                     <h4>
-                      {(Math.floor(mat.quantity) * (1 - bpoME)).toLocaleString(
-                        "en-US"
-                      )}
+                      {bpoME !== null
+                        ? Math.ceil(
+                            mat.quantity *
+                              (1 - bpoME) *
+                              buildQuantity *
+                              (1 - convertLoc()) *
+                              (1 - convertRig()) *
+                              (1 - 0.0115)
+                          )
+                        : mat.quantity}
                     </h4>
                   </td>
                 </tr>
@@ -58,3 +99,7 @@ const RightSection = (props) => {
 };
 
 export default RightSection;
+
+// .toLocaleString(
+//   "en-US"
+// )

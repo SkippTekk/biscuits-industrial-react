@@ -1,18 +1,29 @@
-import { Breadcrumb } from "rsuite";
+import { Breadcrumb, Button, ButtonToolbar } from "rsuite";
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import ShipFactionFilter from "../../utils/ShipFactionFilter";
 import BPO from "../BPO";
 import BuildCount from "../BuildCount";
-import Citadel from "../Citadel";
 import CitadelRig from "../CitadelRig";
 import Location from "../Location";
+import { shipManuActions } from "../store/shipmanu-slice";
 
 const MiddleSection = (props) => {
+  const dispatch = useDispatch();
   const [filteredShip, setFilteredShip] = useState();
+  const bpoME = useSelector((state) => state.shipManu.bpoME);
+  const citRig = useSelector((state) => state.shipManu.citadelRig);
+  const loc = useSelector((state) => state.shipManu.location);
 
   useEffect(() => {
     setFilteredShip(ShipFactionFilter(props.ship));
   }, [props.ship]);
+
+  const handleClear = () => {
+    dispatch(shipManuActions.setBpoME(null));
+    dispatch(shipManuActions.setCitadelRig(null));
+    dispatch(shipManuActions.setLocation(null));
+  };
 
   return (
     <div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -39,17 +50,51 @@ const MiddleSection = (props) => {
         </h2>
         <hr />
         <div style={{ textAlign: "center" }}>
-          <h1>{props.ship.typeName}</h1>
+          <h1>
+            <a
+              href={`https://wiki.eveuniversity.org/${props.ship.typeName.replaceAll(
+                " ",
+                "_"
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+              title={`Eve University Wiki Page for ${props.ship.typeName}`}
+              style={{ textDecoration: "underline" }}
+            >
+              {props.ship.typeName}
+            </a>
+          </h1>
           <br />
           <h5>Ship ID: {props.ship.typeID}</h5>
         </div>
         <hr />
         <div style={{ textAlign: "center" }}>
           <BPO />
+          <hr />
           <BuildCount />
-          <Citadel />
-          <CitadelRig />
+          <hr />
           <Location />
+          <hr />
+          <CitadelRig />
+          <ButtonToolbar block>
+            {bpoME !== null || citRig !== null || loc !== null ? (
+              <Button
+                disabled={
+                  bpoME !== null || citRig !== null || loc !== null
+                    ? false
+                    : true
+                }
+                style={{ width: "250px", marginTop: "20px" }}
+                appearance="primary"
+                color="red"
+                onClick={handleClear}
+              >
+                Reset
+              </Button>
+            ) : (
+              ""
+            )}
+          </ButtonToolbar>
         </div>
       </div>
     </div>
