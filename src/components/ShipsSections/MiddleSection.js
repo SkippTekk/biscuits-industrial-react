@@ -1,12 +1,13 @@
 import { Breadcrumb, Button, ButtonToolbar } from "rsuite";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { shipManuActions } from "../store/shipmanu-slice";
 import ShipFactionFilter from "../../utils/ShipFactionFilter";
+import BillofMaterials from "./BillofMaterials";
 import BPO from "../BPO";
 import BuildCount from "../BuildCount";
 import CitadelRig from "../CitadelRig";
 import Location from "../Location";
-import { shipManuActions } from "../store/shipmanu-slice";
 
 const MiddleSection = (props) => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const MiddleSection = (props) => {
     dispatch(shipManuActions.setBpoME(null));
     dispatch(shipManuActions.setCitadelRig(null));
     dispatch(shipManuActions.setLocation(null));
+    dispatch(shipManuActions.setBuildQuantity(1));
   };
 
   return (
@@ -95,6 +97,8 @@ const MiddleSection = (props) => {
               ""
             )}
           </ButtonToolbar>
+          <hr />
+          <BillofMaterials mats={props.mats} />
         </div>
       </div>
     </div>

@@ -37,11 +37,6 @@ const LeftSection = (props) => {
       <h5>
         <strong>Group ID:</strong> {props.ship.groupID}
       </h5>
-      <hr />
-      <div style={{ textAlign: "center", marginTop: "5px" }}>
-        <h3>Ship Description</h3>
-        <h5>{props.ship.description.replaceAll("<i>", "")}</h5>
-      </div>
     </div>
   );
 };
