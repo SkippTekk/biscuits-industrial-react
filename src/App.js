@@ -1,27 +1,34 @@
 import { Routes, Route } from "react-router-dom";
+import { Container, Header, Footer, Content } from "rsuite";
 
-import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
-import Announcement from "./components/Announcement";
-import Footer from "./components/Footer/Footer";
+import SiteHeader from "./components/SiteHeader/SiteHeader";
+import SiteNavbar from "./components/Navbar/SiteNavbar";
+import SiteFooter from "./components/SiteFooter/SiteFooter";
 
+import ShipByName from "./Pages/ShipByName";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Navbar />
-      <Announcement />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      <Footer />
-    </>
+    <Container>
+      <Header>
+        <SiteHeader />
+      </Header>
+      <Content>
+        <SiteNavbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/ship/:ship" element={<ShipByName />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Content>
+      <Footer>
+        <SiteFooter />
+      </Footer>
+    </Container>
   );
 }
 

@@ -1,21 +1,15 @@
-import { MDBDropdownItem, MDBIcon } from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
+import MiningBargeIcon from "../../ShipIcons/MiningBargeIcon";
 
 const MiningBarge = (props) => {
   return (
-    <MDBDropdownItem>
-      <MDBDropdownItem link href="#">
-        Mining Barge <MDBIcon fas icon="caret-right" />
-      </MDBDropdownItem>
-      <ul className="dropdown-menu dropdown-submenu bg-dark">
-        {props.barge.map((ship) => (
-          <MDBDropdownItem key={ship.name}>
-            <MDBDropdownItem link href={ship.url}>
-              {ship.name}
-            </MDBDropdownItem>
-          </MDBDropdownItem>
-        ))}
-      </ul>
-    </MDBDropdownItem>
+    <Nav.Menu title=" Mining Barge" icon={<MiningBargeIcon />}>
+      {props.barge?.map((ship) => (
+        <Nav.Item as="a" key={ship.typeName} href={`/ship/${ship.typeName}`}>
+          {ship.typeName}
+        </Nav.Item>
+      ))}
+    </Nav.Menu>
   );
 };
 

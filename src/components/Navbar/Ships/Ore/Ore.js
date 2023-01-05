@@ -1,59 +1,67 @@
+import { useEffect, useState } from "react";
 import Frigate from "../Frigate";
 import MiningBarge from "../MiningBarge";
 import Exhumer from "../Exhumer";
 import OreHauler from "../OreHauler";
 import Rorqual from "../Rorqual";
 import Industrial from "../Industrial";
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
 
-const Ore = () => {
+import FetchShipData from "../../../../utils/FetchShipData";
+
+import { Nav } from "rsuite";
+
+const Ore = (props) => {
+  const [ships, setShips] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      FetchShipData(props.race)
+        .then((res) => setShips(res))
+        .catch((err) => console.warn(err));
+    };
+
+    fetchData();
+  }, [props.race]);
+
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        ORE
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={[{ name: "Venture", url: "http://stuff.com" }]}
-          expedition={[
-            { name: "Prospect", url: "http://stuff.com" },
-            { name: "Endurance", url: "http://stuff.com" },
-          ]}
-        />
-
-        <MiningBarge
-          barge={[
-            { name: "Procurer", url: "http://stuff.com" },
-            { name: "Covertor", url: "http://stuff.com" },
-            { name: "Retriever", url: "http://stuff.com" },
-          ]}
-        />
-
-        <Exhumer
-          exhumer={[
-            { name: "Hulk", url: "http://stuff.com" },
-            { name: "Skiff", url: "http://stuff.com" },
-            { name: "Mackinaw", url: "http://stuff.com" },
-          ]}
-        />
-
-        <OreHauler hauler={[{ name: "Noctis", url: "http://stuff.com" }]} />
-
-        <Rorqual rorq={[{ name: "Rorqual", url: "http://stuff.com" }]} />
-
-        <Industrial
-          industrial={[
-            { name: "Porpoise", url: "http://stuff.com" },
-            { name: "Orca", url: "http://stuff.com" },
-          ]}
-          freighter={[{ name: "Bowhead", url: "http://stuff.com" }]}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+    <Nav.Menu title="ORE">
+      <Frigate
+        mining={ships?.filter((id) => {
+          return id.marketGroupID === 1616;
+        })}
+        expedition={ships?.filter((id) => {
+          return id.marketGroupID === 1924;
+        })}
+      />
+      <MiningBarge
+        barge={ships?.filter((id) => {
+          return id.marketGroupID === 494;
+        })}
+      />
+      <Exhumer
+        exhumer={ships?.filter((id) => {
+          return id.marketGroupID === 874;
+        })}
+      />
+      <OreHauler
+        hauler={ships?.filter((id) => {
+          return id.marketGroupID === 1390;
+        })}
+      />
+      <Rorqual
+        rorq={ships?.filter((id) => {
+          return id.marketGroupID === 1048;
+        })}
+      />
+      <Industrial
+        command={ships?.filter((id) => {
+          return id.marketGroupID === 2336;
+        })}
+        orefreighter={ships?.filter((id) => {
+          return id.marketGroupID === 1950;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

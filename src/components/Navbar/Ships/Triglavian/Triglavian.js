@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Frigate from "../Frigate";
 import Destroyer from "../Destroyer";
 import Cruiser from "../Cruiser";
@@ -5,47 +6,73 @@ import Battlecruiser from "../Battlecruiser";
 import Battleship from "../Battleship";
 import Capital from "../Captial";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import FetchShipData from "../../../../utils/FetchShipData";
 
-const Triglavian = () => {
+import { Nav } from "rsuite";
+
+const Triglavian = (props) => {
+  const [ships, setShips] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      FetchShipData(props.race)
+        .then((res) => setShips(res))
+        .catch((err) => console.warn(err));
+    };
+
+    fetchData();
+  }, [props.race]);
+
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Triglavian Collective
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={[{ name: "Damavik", url: "http://stuff.com" }]}
-          assualt={[{ name: "Nergal", url: "http://stuff.com" }]}
-        />
+    <Nav.Menu title="Triglavian">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 2426;
+        })}
+        assualt={ships?.filter((id) => {
+          return id.marketGroupID === 2536;
+        })}
+      />
 
-        <Destroyer
-          destroyer={[{ name: "Kikimora", url: "http://stuff.com" }]}
-          command={[{ name: "Dragur", url: "http://stuff.com" }]}
-        />
+      <Destroyer
+        destroyer={ships?.filter((id) => {
+          return id.marketGroupID === 2523;
+        })}
+        command={ships?.filter((id) => {
+          return id.marketGroupID === 2537;
+        })}
+      />
 
-        <Cruiser
-          cruiser={[
-            { name: "Vedmak", url: "http://stuff.com" },
-            { name: "Rodiva", url: "http://stuff.com" },
-          ]}
-          heavy={[{ name: "Ikitursa", url: "http://stuff.com" }]}
-          logi={[{ name: "Zarmazd", url: "http://stuff.com" }]}
-        />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 2428;
+        })}
+        heavy={ships?.filter((id) => {
+          return id.marketGroupID === 2535;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 2526;
+        })}
+      />
 
-        <Battlecruiser
-          cruiser={[{ name: "Drekavac", url: "http://stuff.com" }]}
-        />
+      <Battlecruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 2525;
+        })}
+      />
 
-        <Battleship battle={[{ name: "Leshak", url: "http://stuff.com" }]} />
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 2430;
+        })}
+      />
 
-        <Capital dread={[{ name: "Zirnitra", url: "http://stuff.com" }]} />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      <Capital
+        dread={ships?.filter((id) => {
+          return id.marketGroupID === 2690;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Frigate from "../Frigate";
 import Destroyer from "../Destroyer";
 import Cruiser from "../Cruiser";
@@ -6,139 +7,153 @@ import Battleship from "../Battleship";
 import Capital from "../Captial";
 import Industrial from "../Industrial";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
-const Amarr = () => {
+import FetchShipData from "../../../../utils/FetchShipData";
+
+const Amarr = (props) => {
+  const [ships, setShips] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      FetchShipData(props.race)
+        .then((res) => setShips(res))
+        .catch((err) => console.warn(err));
+    };
+
+    fetchData();
+  }, [props.race]);
+
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Amarr Empire
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={[
-            { name: "Crucifier", url: "http://stuff.com" },
-            { name: "Magnate", url: "http://stuff.com" },
-            { name: "Executioner", url: "http://stuff.com" },
-            { name: "Inquisitor", url: "http://stuff.com" },
-            { name: "Tormentor", url: "http://stuff.com" },
-            { name: "Punisher", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Crucifier Navy Issue", url: "http://stuff.com" },
-            { name: "Imperial Navy Slicer", url: "http://stuff.com" },
-            { name: "Magnate Navy Issue", url: "http://stuff.com" },
-          ]}
-          interceptor={[
-            { name: "Crusader", url: "http://stuff.com" },
-            { name: "Malediction", url: "http://stuff.com" },
-          ]}
-          assault={[
-            { name: "Retribution", url: "http://stuff.com" },
-            { name: "Vengeance", url: "http://stuff.com" },
-          ]}
-          covert={[
-            { name: "Anathema", url: "http://stuff.com" },
-            { name: "Purifier", url: "http://stuff.com" },
-          ]}
-          elecattack={[{ name: "Sentinel", url: "http://stuff.com" }]}
-          logi={[{ name: "Deacon", url: "http://stuff.com" }]}
-        />
+    <Nav.Menu
+      title="Amarr Empire"
+      style={{
+        fontWeight: "bold",
+      }}
+    >
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 72;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1366;
+        })}
+        interceptor={ships?.filter((id) => {
+          return id.marketGroupID === 400;
+        })}
+        assault={ships?.filter((id) => {
+          return id.marketGroupID === 433;
+        })}
+        covert={ships?.filter((id) => {
+          return id.marketGroupID === 421;
+        })}
+        elecattack={ships?.filter((id) => {
+          return id.marketGroupID === 1066;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 2147;
+        })}
+      />
 
-        <Destroyer
-          destroyer={[
-            { name: "Coercer", url: "http://stuff.com" },
-            { name: "Dragoon", url: "http://stuff.com" },
-          ]}
-          navy={[{ name: "Coercer Navy Issue", url: "http://stuff.com" }]}
-          interdictor={[{ name: "Heretic", url: "http://stuff.com" }]}
-          commdestroyer={[{ name: "Pontifex", url: "http://stuff.com" }]}
-          tacdestroyer={[{ name: "Confessor", url: "http://stuff.com" }]}
-        />
+      <Destroyer
+        destroyer={ships?.filter((id) => {
+          return id.marketGroupID === 465;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 3481;
+        })}
+        interdictor={ships?.filter((id) => {
+          return id.marketGroupID === 826;
+        })}
+        commdestroyer={ships?.filter((id) => {
+          return id.marketGroupID === 2126;
+        })}
+        tacdestroyer={ships?.filter((id) => {
+          return id.marketGroupID === 1952;
+        })}
+      />
 
-        <Cruiser
-          cruiser={[
-            { name: "Maller", url: "http://stuff.com" },
-            { name: "Omen", url: "http://stuff.com" },
-            { name: "Augoror", url: "http://stuff.com" },
-            { name: "Arbitrator", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Augoror Fleet Issue", url: "http://stuff.com" },
-            { name: "Omen Fleet Issue", url: "http://stuff.com" },
-          ]}
-          recon={[
-            { name: "Curse", url: "http://stuff.com" },
-            { name: "Pilgrim", url: "http://stuff.com" },
-          ]}
-          heavy={[
-            { name: "Zealot", url: "http://stuff.com" },
-            { name: "Sacrilege", url: "http://stuff.com" },
-          ]}
-          interdiction={[{ name: "Devoter", url: "http://stuff.com" }]}
-          logi={[{ name: "Guardian", url: "http://stuff.com" }]}
-          strat={[{ name: "Legion", url: "http://stuff.com" }]}
-        />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 74;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1370;
+        })}
+        recon={ships?.filter((id) => {
+          return id.marketGroupID === 827;
+        })}
+        heavy={ships?.filter((id) => {
+          return id.marketGroupID === 449;
+        })}
+        interdiction={ships?.filter((id) => {
+          return id.marketGroupID === 1071;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 438;
+        })}
+        strat={ships?.filter((id) => {
+          return id.marketGroupID === 1139;
+        })}
+      />
 
-        <Battlecruiser
-          cruiser={[
-            { name: "Prohpecy", url: "http://stuff.com" },
-            { name: "Harbinger", url: "http://stuff.com" },
-            { name: "Oracle", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Harbinger Navy Issue", url: "http://stuff.com" },
-            { name: "Prophecy Navy Issue", url: "http://stuff.com" },
-          ]}
-          command={[
-            { name: "Absolution", url: "http://stuff.com" },
-            { name: "Damnation", url: "http://stuff.com" },
-          ]}
-        />
+      <Battlecruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 470;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1704;
+        })}
+        command={ships?.filter((id) => {
+          return id.marketGroupID === 825;
+        })}
+      />
 
-        <Battleship
-          battle={[
-            { name: "Apocalypse", url: "http://stuff.com" },
-            { name: "Armageddon", url: "http://stuff.com" },
-            { name: "Abaddon", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Armageddon Navy Issue", url: "http://stuff.com" },
-            { name: "Apocalypse Navy Issue", url: "http://stuff.com" },
-          ]}
-          blackops={[{ name: "Redeemer", url: "http://stuff.com" }]}
-          marauder={[{ name: "Paladin", url: "http://stuff.com" }]}
-        />
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 79;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1379;
+        })}
+        blackops={ships?.filter((id) => {
+          return id.marketGroupID === 1076;
+        })}
+        marauder={ships?.filter((id) => {
+          return id.marketGroupID === 1081;
+        })}
+      />
 
-        <Capital
-          dread={[{ name: "Revelation", url: "http://stuff.com" }]}
-          navy={[{ name: "Revelation Navy Issue", url: "http://stuff.com" }]}
-          carrier={[
-            { name: "Apostle", url: "http://stuff.com" },
-            { name: "Aeon", url: "http://stuff.com" },
-            { name: "Archon", url: "http://stuff.com" },
-          ]}
-          titan={[{ name: "Avatar", url: "http://stuff.com" }]}
-        />
+      <Capital
+        dread={ships?.filter((id) => {
+          return id.marketGroupID === 762;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 3484;
+        })}
+        carrier={ships?.filter((id) => {
+          return id.marketGroupID === 818 || id.marketGroupID === 2272;
+        })}
+        titan={ships?.filter((id) => {
+          return id.marketGroupID === 813;
+        })}
+      />
 
-        <Industrial
-          industrial={[
-            { name: "Sigil", url: "http://stuff.com" },
-            { name: "Bestower", url: "http://stuff.com" },
-          ]}
-          transport={[
-            { name: "Prorator", url: "http://stuff.com" },
-            { name: "Impel", url: "http://stuff.com" },
-          ]}
-          freighter={[{ name: "Providence", url: "http://stuff.com" }]}
-          jump={[{ name: "Ark", url: "http://stuff.com" }]}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      <Industrial
+        industrial={ships?.filter((id) => {
+          return id.marketGroupID === 85;
+        })}
+        transport={ships?.filter((id) => {
+          return id.marketGroupID === 630;
+        })}
+        freighter={ships?.filter((id) => {
+          return id.marketGroupID === 767;
+        })}
+        jump={ships?.filter((id) => {
+          return id.marketGroupID === 1090;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

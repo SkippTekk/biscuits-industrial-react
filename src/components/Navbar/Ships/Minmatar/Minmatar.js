@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Frigate from "../Frigate";
 import Destroyer from "../Destroyer";
 import Cruiser from "../Cruiser";
@@ -6,140 +7,142 @@ import Battleship from "../Battleship";
 import Capital from "../Captial";
 import Industrial from "../Industrial";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import FetchShipData from "../../../../utils/FetchShipData";
 
-const Minmatar = () => {
+import { Nav } from "rsuite";
+
+const Minmatar = (props) => {
+  const [ships, setShips] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      FetchShipData(props.race)
+        .then((res) => setShips(res))
+        .catch((err) => console.warn(err));
+    };
+
+    fetchData();
+  }, [props.race]);
+
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Minmatar Republic
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={[
-            { name: "Slasher", url: "http://stuff.com" },
-            { name: "Probe", url: "http://stuff.com" },
-            { name: "Rifter", url: "http://stuff.com" },
-            { name: "Breacher", url: "http://stuff.com" },
-            { name: "Burst", url: "http://stuff.com" },
-            { name: "Vigil", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Vigil Fleet Issue", url: "http://stuff.com" },
-            { name: "Republic Fleet Firetail", url: "http://stuff.com" },
-            { name: "Probe Fleet Issue", url: "http://stuff.com" },
-          ]}
-          interceptor={[
-            { name: "Claw", url: "http://stuff.com" },
-            { name: "Stiletto", url: "http://stuff.com" },
-          ]}
-          assault={[
-            { name: "Jaguar", url: "http://stuff.com" },
-            { name: "Wolf", url: "http://stuff.com" },
-          ]}
-          covert={[
-            { name: "Cheetah", url: "http://stuff.com" },
-            { name: "Hound", url: "http://stuff.com" },
-          ]}
-          elecattack={[{ name: "Hyena", url: "http://stuff.com" }]}
-          logi={[{ name: "Scalpel", url: "http://stuff.com" }]}
-        />
-
-        <Destroyer
-          destroyer={[
-            { name: "Talwar", url: "http://stuff.com" },
-            { name: "Thrasher", url: "http://stuff.com" },
-          ]}
-          navy={[{ name: "Thrasher Fleet Issue", url: "http://stuff.com" }]}
-          interdictor={[{ name: "Sabre", url: "http://stuff.com" }]}
-          commdestroyer={[{ name: "Bifrost", url: "http://stuff.com" }]}
-          tacdestroyer={[{ name: "Svipul", url: "http://stuff.com" }]}
-        />
-
-        <Cruiser
-          cruiser={[
-            { name: "Rupture", url: "http://stuff.com" },
-            { name: "Stabber", url: "http://stuff.com" },
-            { name: "Bellicose", url: "http://stuff.com" },
-            { name: "Scythe", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Scythe Fleet Issue", url: "http://stuff.com" },
-            { name: "Stabber Fleet Issue", url: "http://stuff.com" },
-          ]}
-          recon={[
-            { name: "Huginn", url: "http://stuff.com" },
-            { name: "Rapier", url: "http://stuff.com" },
-          ]}
-          heavy={[
-            { name: "Muninn", url: "http://stuff.com" },
-            { name: "Vagabond", url: "http://stuff.com" },
-          ]}
-          interdiction={[{ name: "Broadsword", url: "http://stuff.com" }]}
-          logi={[{ name: "Scimitar", url: "http://stuff.com" }]}
-          strat={[{ name: "Loki", url: "http://stuff.com" }]}
-        />
-
-        <Battlecruiser
-          cruiser={[
-            { name: "Cyclone", url: "http://stuff.com" },
-            { name: "Hurricane", url: "http://stuff.com" },
-            { name: "Tornado", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Hurricane Fleet Issue", url: "http://stuff.com" },
-            { name: "Cyclone Fleet Issue", url: "http://stuff.com" },
-          ]}
-          command={[
-            { name: "Claymore", url: "http://stuff.com" },
-            { name: "Sleipnir", url: "http://stuff.com" },
-          ]}
-        />
-
-        <Battleship
-          battle={[
-            { name: "Maelstrom", url: "http://stuff.com" },
-            { name: "Tempest", url: "http://stuff.com" },
-            { name: "Typhoon", url: "http://stuff.com" },
-          ]}
-          navy={[
-            { name: "Typhoon Fleet Issue", url: "http://stuff.com" },
-            { name: "Tempest Fleet Issue", url: "http://stuff.com" },
-          ]}
-          blackops={[{ name: "Panther", url: "http://stuff.com" }]}
-          marauder={[{ name: "Vargur", url: "http://stuff.com" }]}
-        />
-
-        <Capital
-          dread={[{ name: "Naglfar", url: "http://stuff.com" }]}
-          navy={[{ name: "Naglfar Fleet Issue", url: "http://stuff.com" }]}
-          carrier={[
-            { name: "Lif", url: "http://stuff.com" },
-            { name: "Hel", url: "http://stuff.com" },
-            { name: "Nidhoggur", url: "http://stuff.com" },
-          ]}
-          titan={[{ name: "Ragnarok", url: "http://stuff.com" }]}
-        />
-
-        <Industrial
-          industrial={[
-            { name: "Hoarder", url: "http://stuff.com" },
-            { name: "Mammoth", url: "http://stuff.com" },
-            { name: "Wreathe", url: "http://stuff.com" },
-          ]}
-          transport={[
-            { name: "Prowler", url: "http://stuff.com" },
-            { name: "Mastodon", url: "http://stuff.com" },
-          ]}
-          freighter={[{ name: "Fenrir", url: "http://stuff.com" }]}
-          jump={[{ name: "Nomad", url: "http://stuff.com" }]}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+    <Nav.Menu title="Minmatar Republic">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 64;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1366;
+        })}
+        interceptor={ships?.filter((id) => {
+          return id.marketGroupID === 403;
+        })}
+        assault={ships?.filter((id) => {
+          return id.marketGroupID === 436;
+        })}
+        covert={ships?.filter((id) => {
+          return id.marketGroupID === 424;
+        })}
+        elecattack={ships?.filter((id) => {
+          return id.marketGroupID === 1069;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 2150;
+        })}
+      />
+      <Destroyer
+        destroyer={ships?.filter((id) => {
+          return id.marketGroupID === 468;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 3481;
+        })}
+        interdictor={ships?.filter((id) => {
+          return id.marketGroupID === 835;
+        })}
+        commdestroyer={ships?.filter((id) => {
+          return id.marketGroupID === 2133;
+        })}
+        tacdestroyer={ships?.filter((id) => {
+          return id.marketGroupID === 1953;
+        })}
+      />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 73;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1370;
+        })}
+        recon={ships?.filter((id) => {
+          return id.marketGroupID === 836;
+        })}
+        heavy={ships?.filter((id) => {
+          return id.marketGroupID === 452;
+        })}
+        interdiction={ships?.filter((id) => {
+          return id.marketGroupID === 1074;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 441;
+        })}
+        strat={ships?.filter((id) => {
+          return id.marketGroupID === 1142;
+        })}
+      />
+      <Battlecruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 473;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1704;
+        })}
+        command={ships?.filter((id) => {
+          return id.marketGroupID === 834;
+        })}
+      />
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 78;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 1379;
+        })}
+        blackops={ships?.filter((id) => {
+          return id.marketGroupID === 1079;
+        })}
+        marauder={ships?.filter((id) => {
+          return id.marketGroupID === 1084;
+        })}
+      />
+      <Capital
+        dread={ships?.filter((id) => {
+          return id.marketGroupID === 765;
+        })}
+        navy={ships?.filter((id) => {
+          return id.marketGroupID === 3484;
+        })}
+        carrier={ships?.filter((id) => {
+          return id.marketGroupID === 821 || id.marketGroupID === 2275;
+        })}
+        titan={ships?.filter((id) => {
+          return id.marketGroupID === 816;
+        })}
+      />
+      <Industrial
+        industrial={ships?.filter((id) => {
+          return id.marketGroupID === 82;
+        })}
+        transport={ships?.filter((id) => {
+          return id.marketGroupID === 633;
+        })}
+        freighter={ships?.filter((id) => {
+          return id.marketGroupID === 770;
+        })}
+        jump={ships?.filter((id) => {
+          return id.marketGroupID === 1093;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 
