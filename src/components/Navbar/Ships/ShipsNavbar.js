@@ -1,4 +1,3 @@
-import "./ShipsNavbar.css";
 import Amarr from "./Amarr/Amarr";
 import Caldari from "./Caldari/Caldari";
 import Gallante from "./Gallante/Gallante";
@@ -14,48 +13,33 @@ import Mordu from "./Mordu/Mordu";
 import Triglavian from "./Triglavian/Triglavian";
 import Edencom from "./Edencom/Edencom";
 
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarNav,
-  MDBNavbarItem,
-} from "mdb-react-ui-kit";
+import { Nav, FlexboxGrid, AutoComplete, InputGroup } from "rsuite";
+import SearchIcon from "@rsuite/icons/Search";
 
 const ShipNavbar = () => {
   return (
-    <MDBNavbar
-      expand="lg"
-      dark
-      bgColor="dark"
-      className="pt-0 mt-0 square border-top border-secondary"
-    >
-      <MDBContainer>
-        <MDBNavbarNav>
-          <MDBNavbarItem>
-            <div className="d-flex flex-column flex-fill justify-content-center align-items-center">
-              <div>
-                <Amarr race="4" />
-                <Caldari race="1" />
-                <Gallante race="8" />
-                <Minmatar race="2" />
-                <Ore race="128" />
-                <Guristas race="1" />
-                <Sansha race="4" />
-                <BloodRaider race="4" />
-              </div>
-              <div>
-                <AngelCartel race="2" />
-                <Serpentis race="8" />
-                <Sisters race="8" />
-                <Mordu race="1" />
-                <Triglavian race="135" />
-                <Edencom race="1" />
-              </div>
-            </div>
-          </MDBNavbarItem>
-        </MDBNavbarNav>
-      </MDBContainer>
-    </MDBNavbar>
+    <Nav style={{ borderTop: "1px solid darkgrey" }}>
+      <FlexboxGrid justify="center">
+        <div>
+          <Amarr race="4" />
+          <Caldari race="1" />
+          <Gallante race="8" />
+          <Minmatar race="2" />
+          <Ore race="128" />
+          <Guristas race="1" />
+          <Sansha race="4" />
+        </div>
+        <div>
+          <BloodRaider race="4" />
+          <AngelCartel race="2" />
+          <Serpentis race="8" />
+          <Sisters race="8" />
+          <Mordu race="1" />
+          <Triglavian race="135" />
+          <Edencom race="1" />
+        </div>
+      </FlexboxGrid>
+    </Nav>
   );
 };
 

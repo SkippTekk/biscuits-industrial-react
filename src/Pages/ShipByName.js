@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBSpinner } from "mdb-react-ui-kit";
+import { Loader, FlexboxGrid } from "rsuite";
 import axios from "axios";
 
 import LeftSection from "../components/ShipsSections/LeftSection";
@@ -9,9 +9,9 @@ import RightSection from "../components/ShipsSections/RightSection";
 import DynamicMeta from "../components/DynamicMeta";
 
 const ShipByName = () => {
+  let { ship } = useParams();
   const [shipData, setShipData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  let { ship } = useParams();
 
   const getShipData = () => {
     try {
@@ -36,11 +36,9 @@ const ShipByName = () => {
   return (
     <>
       {isLoading && (
-        <div className="d-flex justify-content-center p-5">
-          <MDBSpinner color="info" style={{ width: "4rem", height: "4rem" }}>
-            <span className="visually-hidden">Loading...</span>
-          </MDBSpinner>
-        </div>
+        <FlexboxGrid justify="center" style={{ padding: "125px" }}>
+          <Loader size="lg" content="Loading..." vertical />
+        </FlexboxGrid>
       )}
       {!isLoading && (
         <>
@@ -50,22 +48,20 @@ const ShipByName = () => {
             img={`https://image.testeveonline.com/Render/${shipData[0].ship.typeID}_512.png`}
           />
 
-          <MDBContainer fluid>
-            <MDBRow>
-              <MDBCol>
-                <LeftSection ship={shipData[0].ship} />
-              </MDBCol>
-              <MDBCol>
-                <MiddleSection
-                  ship={shipData[0].ship}
-                  mats={shipData[1].materials}
-                />
-              </MDBCol>
-              <MDBCol>
-                <RightSection ship={shipData[0].ship} />
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
+          <FlexboxGrid justify="space-around" style={{ marginTop: "10px" }}>
+            <FlexboxGrid.Item colspan={6}>
+              <LeftSection ship={shipData[0].ship} />
+            </FlexboxGrid.Item>
+            <FlexboxGrid.Item colspan={9}>
+              <MiddleSection
+                ship={shipData[0].ship}
+                mats={shipData[1].materials}
+              />
+            </FlexboxGrid.Item>
+            <FlexboxGrid.Item colspan={6}>
+              <RightSection ship={shipData[0].ship} />
+            </FlexboxGrid.Item>
+          </FlexboxGrid>
         </>
       )}
     </>

@@ -18,5 +18,10 @@ export default (): JSX.Element => {
     };
   });
 
-  return <div className="container">{timer.toLocaleTimeString()}</div>;
+  return (
+    <div className="container">
+      <p style={{ textAlign: "center" }}>Eve Time:</p>{" "}
+      {timer.toLocaleTimeString()}
+    </div>
+  );
 };

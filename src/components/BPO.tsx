@@ -1,21 +1,79 @@
+<<<<<<< HEAD:src/components/BPO.tsx
 import React from "react";
 
 export default (): JSX.Element => {
+=======
+import { SelectPicker } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { shipManuActions } from "../components/store/shipmanu-slice";
+
+const opts = [
+  "0%",
+  "1%",
+  "2%",
+  "3%",
+  "4%",
+  "5%",
+  "6%",
+  "7%",
+  "8%",
+  "9%",
+  "10%",
+].map((opt) => ({
+  label: opt,
+  value: opt,
+}));
+
+const BPO = () => {
+  const dispatch = useDispatch();
+  const bpoME = useSelector((state) => state.shipManu.bpoME);
+
+  const convertBpoME = () => {
+    if (bpoME === null) {
+      return null;
+    }
+
+    if (bpoME < 0.1) {
+      return bpoME.toString().replace("0.0", "") + "%";
+    } else {
+      return bpoME.toString().replace("0.", "") + "%";
+    }
+  };
+
+  const handleSelect = (opt) => {
+    if (opt && opt.replace("%", "") < 10) {
+      dispatch(shipManuActions.setBpoME(`0.0${+opt.replace("%", "")}`));
+    } else {
+      dispatch(shipManuActions.setBpoME(`0.${+opt.replace("%", "")}`));
+    }
+  };
+
+  const handleClean = () => {
+    dispatch(shipManuActions.setBpoME(null));
+  };
+
+>>>>>>> 660702487c5f9d70f471beb17e039b37953a940d:src/components/BPO.js
   return (
-    <div className="BPONumber">
-      <legend>What's your ME BPO number</legend>
-      <select className="forum-select" id="BPO">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
+    <div>
+      <h4>
+        What is the blue print{" "}
+        <a
+          href="https://wiki.eveuniversity.org/Research#:~:text=Material%20Efficiency%20(ME)%20research%20reduces,item%20is%20likely%20to%20be."
+          style={{ textDecoration: "underline" }}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Material Efficiency?
+        </a>
+      </h4>
+      <SelectPicker
+        data={opts}
+        searchable={false}
+        onSelect={handleSelect}
+        onClean={handleClean}
+        value={convertBpoME()}
+        style={{ width: "150px" }}
+      />
     </div>
   );
 };

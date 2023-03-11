@@ -8,11 +8,7 @@ import Capital from "../Captial";
 
 import FetchShipData from "../../../../utils/FetchShipData";
 
-import {
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-} from "mdb-react-ui-kit";
+import { Nav } from "rsuite";
 
 const Triglavian = (props) => {
   const [ships, setShips] = useState();
@@ -28,60 +24,55 @@ const Triglavian = (props) => {
   }, [props.race]);
 
   return (
-    <MDBDropdown group>
-      <MDBDropdownToggle tag="a" className="nav-link">
-        Triglavian Collective
-      </MDBDropdownToggle>
-      <MDBDropdownMenu dark className="bg-dark">
-        <Frigate
-          frigate={ships?.filter((id) => {
-            return id.marketGroupID === 2426;
-          })}
-          assualt={ships?.filter((id) => {
-            return id.marketGroupID === 2536;
-          })}
-        />
+    <Nav.Menu title="Triglavian">
+      <Frigate
+        frigate={ships?.filter((id) => {
+          return id.marketGroupID === 2426;
+        })}
+        assualt={ships?.filter((id) => {
+          return id.marketGroupID === 2536;
+        })}
+      />
 
-        <Destroyer
-          destroyer={ships?.filter((id) => {
-            return id.marketGroupID === 2523;
-          })}
-          command={ships?.filter((id) => {
-            return id.marketGroupID === 2537;
-          })}
-        />
+      <Destroyer
+        destroyer={ships?.filter((id) => {
+          return id.marketGroupID === 2523;
+        })}
+        command={ships?.filter((id) => {
+          return id.marketGroupID === 2537;
+        })}
+      />
 
-        <Cruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 2428;
-          })}
-          heavy={ships?.filter((id) => {
-            return id.marketGroupID === 2535;
-          })}
-          logi={ships?.filter((id) => {
-            return id.marketGroupID === 2526;
-          })}
-        />
+      <Cruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 2428;
+        })}
+        heavy={ships?.filter((id) => {
+          return id.marketGroupID === 2535;
+        })}
+        logi={ships?.filter((id) => {
+          return id.marketGroupID === 2526;
+        })}
+      />
 
-        <Battlecruiser
-          cruiser={ships?.filter((id) => {
-            return id.marketGroupID === 2525;
-          })}
-        />
+      <Battlecruiser
+        cruiser={ships?.filter((id) => {
+          return id.marketGroupID === 2525;
+        })}
+      />
 
-        <Battleship
-          battle={ships?.filter((id) => {
-            return id.marketGroupID === 2430;
-          })}
-        />
+      <Battleship
+        battle={ships?.filter((id) => {
+          return id.marketGroupID === 2430;
+        })}
+      />
 
-        <Capital
-          dread={ships?.filter((id) => {
-            return id.marketGroupID === 2690;
-          })}
-        />
-      </MDBDropdownMenu>
-    </MDBDropdown>
+      <Capital
+        dread={ships?.filter((id) => {
+          return id.marketGroupID === 2690;
+        })}
+      />
+    </Nav.Menu>
   );
 };
 

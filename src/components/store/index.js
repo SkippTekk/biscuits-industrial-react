@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import navbarReducer from "./navbar-slice";
+import shipManuReducer from "./shipmanu-slice";
 
 const store = configureStore({
-  reducer: { navbar: navbarReducer },
+  reducer: { shipManu: shipManuReducer },
 });
 
 export default store;
