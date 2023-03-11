@@ -16,7 +16,9 @@ const ShipByName = () => {
   const getShipData = () => {
     try {
       axios
-        .get(`http://localhost:3001/api/ship/getShipByName/${ship}`)
+        .get(
+          `${process.env.REACT_APP_DATABASE_URL}/api/ship/getShipByName/${ship}`
+        )
         .then((res) => {
           setShipData(res.data);
           setIsLoading(false);

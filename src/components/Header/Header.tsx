@@ -1,4 +1,6 @@
-const Header = () => {
+import React from "react";
+
+export const Header = (): JSX.Element => {
   return (
     <div
       className="p-5 bg-light rounded-3 border"
@@ -10,5 +12,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

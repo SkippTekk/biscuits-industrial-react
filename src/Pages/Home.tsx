@@ -1,8 +1,8 @@
+import React from "react";
 import DynamicMeta from "../components/DynamicMeta";
-
 import { MDBRow, MDBCol } from "mdb-react-ui-kit";
 
-const Home = () => {
+export const Home = (): JSX.Element => {
   return (
     <>
       <DynamicMeta
@@ -17,9 +17,8 @@ const Home = () => {
             <iframe
               title="Discord Widget"
               src="https://discordapp.com/widget?id=656049566046748694&theme=dark"
-              width="60%"
+              width="80%"
               height="100%"
-              allowtransparency="true"
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
               style={{ borderRadius: "15px" }}
             />
@@ -84,7 +83,6 @@ const Home = () => {
           <div className="text-center">
             <a href="https://evewho.com/character/95046472" target="__blank">
               <img
-                type="image"
                 className="media-object text-center"
                 src="https://images.evetech.net/characters/95046472/portrait"
                 style={{
@@ -101,4 +99,3 @@ const Home = () => {
     </>
   );
 };
-export default Home;

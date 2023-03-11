@@ -1,4 +1,6 @@
-const BPO = () => {
+import React from "react";
+
+export default (): JSX.Element => {
   return (
     <div className="BPONumber">
       <legend>What's your ME BPO number</legend>
@@ -17,4 +19,3 @@ const BPO = () => {
     </div>
   );
 };
-export default BPO;

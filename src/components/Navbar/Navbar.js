@@ -70,10 +70,8 @@ const Navbar = () => {
                   className={navSelect === "shipManu" ? "text-info" : ""}
                 >
                   Ship Manufacturing{" "}
-                  {navSelect === "shipManu" ? (
+                  {navSelect === "shipManu" && (
                     <i className="fas fa-times" style={{ color: "red" }} />
-                  ) : (
-                    <i className="fas fa-sync" />
                   )}
                   <br />
                   {navSelect === "shipManu" && (
@@ -84,29 +82,19 @@ const Navbar = () => {
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink>
-                  Citadel Manufacturing <i className="fas fa-sync" />
-                </MDBNavbarLink>
+                <MDBNavbarLink>Citadel Manufacturing</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink>
-                  Reprocessing <i className="fas fa-sync" />
-                </MDBNavbarLink>
+                <MDBNavbarLink>Reprocessing</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink>
-                  Jump Gate Refuel <i className="fas fa-sync" />
-                </MDBNavbarLink>
+                <MDBNavbarLink>Jump Gate Refuel</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink>
-                  API for Geeks <i className="fas fa-sync" />
-                </MDBNavbarLink>
+                <MDBNavbarLink>API for Geeks</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink>
-                  About <i className="fas fa-sync" />
-                </MDBNavbarLink>
+                <MDBNavbarLink href="/about">About</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>

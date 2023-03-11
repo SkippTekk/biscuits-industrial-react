@@ -1,23 +1,22 @@
+import React from "react";
 import { useState, useEffect } from "react";
 
-const Clock = () => {
+export default (): JSX.Element => {
   const [timer, setTimer] = useState(new Date());
 
-  function tick() {
+  const tick = (): void => {
     setTimer(new Date(new Date().toLocaleString("en", { timeZone: "UTC" })));
-  }
+  };
 
   useEffect(() => {
-    let timerID = setInterval(() => {
+    let timerID: NodeJS.Timer = setInterval((): void => {
       tick();
     }, 1000);
 
-    return () => {
+    return (): void => {
       clearInterval(timerID);
     };
   });
 
   return <div className="container">{timer.toLocaleTimeString()}</div>;
 };
-
-export default Clock;

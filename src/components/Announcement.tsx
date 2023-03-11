@@ -1,4 +1,6 @@
-const Announcement = () => {
+import React from "react";
+
+export const Announcement = (): JSX.Element => {
   return (
     <div className="alert alert-success" role="alert" data-mdb-color="success">
       <h4 className="alert-heading">Hello!</h4>
@@ -14,7 +16,7 @@ const Announcement = () => {
         Welcome! If you wanna help, you can join the discord above or go to the{" "}
         <a
           target="__blank"
-          href="https://github.com/SkippTekk/Biscuits-Industrial-EJS"
+          href="https://github.com/SkippTekk/biscuits-industrial-react"
         >
           GitHub
         </a>{" "}
@@ -23,4 +25,3 @@ const Announcement = () => {
     </div>
   );
 };
-export default Announcement;
