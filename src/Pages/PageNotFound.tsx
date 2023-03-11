@@ -1,6 +1,7 @@
+import React from "react";
 import "../css/404.css";
 
-const PageNotFound = () => {
+export const PageNotFound = (): JSX.Element => {
   document.title = "(╯°□°）╯︵ ┻━┻";
   return (
     <div id="notfound">
@@ -18,4 +19,3 @@ const PageNotFound = () => {
     </div>
   );
 };
-export default PageNotFound;

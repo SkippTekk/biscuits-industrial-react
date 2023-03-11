@@ -1,4 +1,6 @@
-const About = () => {
+import React from "react";
+
+export const About = (): JSX.Element => {
   document.title = "About Biscuits Industrial";
   return (
     <div>
@@ -9,4 +11,3 @@ const About = () => {
     </div>
   );
 };
-export default About;

@@ -1,3 +1,8 @@
+<<<<<<< HEAD:src/components/BPO.tsx
+import React from "react";
+
+export default (): JSX.Element => {
+=======
 import { SelectPicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { shipManuActions } from "../components/store/shipmanu-slice";
@@ -47,6 +52,7 @@ const BPO = () => {
     dispatch(shipManuActions.setBpoME(null));
   };
 
+>>>>>>> 660702487c5f9d70f471beb17e039b37953a940d:src/components/BPO.js
   return (
     <div>
       <h4>
@@ -71,4 +77,3 @@ const BPO = () => {
     </div>
   );
 };
-export default BPO;

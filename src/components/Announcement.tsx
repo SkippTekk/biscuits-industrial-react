@@ -1,6 +1,12 @@
+<<<<<<< HEAD:src/components/Announcement.tsx
+import React from "react";
+
+export const Announcement = (): JSX.Element => {
+=======
 import { Message } from "rsuite";
 
 const Announcement = () => {
+>>>>>>> 660702487c5f9d70f471beb17e039b37953a940d:src/components/Announcement.js
   return (
     <Message type="success" style={{ marginBottom: "20px" }}>
       <h4>Hello!</h4>
@@ -25,4 +31,3 @@ const Announcement = () => {
     </Message>
   );
 };
-export default Announcement;
