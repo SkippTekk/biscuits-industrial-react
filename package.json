@@ -28,11 +28,8 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
-<<<<<<< HEAD
     "typescript": "^4.9.5",
-=======
     "rsuite": "^5.23.2",
->>>>>>> 660702487c5f9d70f471beb17e039b37953a940d
     "web-vitals": "^2.1.4"
   },
   "scripts": {
